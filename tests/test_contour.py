@@ -28,6 +28,18 @@ def test_plot():
     plt.show()
 
 
+def test_paths():
+    x = np.linspace(-1.0, 1.0, 10)
+    y = np.linspace(-1.0, 1.0, 11)
+    X, Y = np.meshgrid(x, y)
+    z = X + 1j * Y
+    vals = np.angle(z)
+
+    paths = mplx.main._get_xy_paths(x, y, vals, level=0.5, max_jump=5.0, min_jump=None)
+    assert len(paths) == 1
+    assert paths[0].shape == (2, 9)
+
+
 def test_closed_path():
     delta = 0.5
     x = np.arange(-2.0, 2.0, delta)
