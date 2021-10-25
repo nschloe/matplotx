@@ -12,8 +12,33 @@
 
 ### Contour plots for functions with discontinuities
 
+| <img src="https://nschloe.github.io/mplx/contour-mpl.svg" width="100%"> | <img src="https://nschloe.github.io/mplx/contour-mplx.svg" width="100%"> |
+| :---------------------------------------------------------------------: | :----------------------------------------------------------------------: |
+|                              `plt.contour`                              |                       `mplx.contour(max_jump=1.0)                        |
 
 
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+import mplx
+
+x = np.linspace(-2.0, 2.0, 100)
+y = np.linspace(-2.0, 2.0, 100)
+
+X, Y = np.meshgrid(x, y)
+Z = X + 1j * Y
+
+vals = np.imag(np.log(Z))
+
+# plt.contour(X, Y, vals, levels=[-2.0, -1.0, 0.0, 1.0, 2.0])
+mplx.contour(X, Y, vals, levels=[-2.0, -1.0, 0.0, 1.0, 2.0], max_jump=1.0)
+mplx.contour(X, Y, vals, levels=[0.0], min_jump=1.0, linestyles=":")
+
+plt.gca().set_aspect("equal")
+plt.show()
+```
 
 ### License
-mplx is published under the [MIT](LICENSE).
+
+This software is published under the [MIT license](LICENSE).
