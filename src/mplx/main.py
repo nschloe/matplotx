@@ -13,7 +13,7 @@ def contour(
     levels: list[float],
     min_jump: float | None = None,
     max_jump: float | None = None,
-    colors: str | list[str] | None = None,
+    colors: str | list[str | None] | None = None,
     linestyles: str | None = None,
     alpha: float | None = None,
 ):
