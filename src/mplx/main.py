@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import matplotlib.colors
 import matplotlib.pyplot as plt
 import networkx
 import numpy as np
@@ -38,11 +39,16 @@ def contour(
 
     assert len(colors) == len(levels)
 
+    cmap = plt.get_cmap()
+    norm = matplotlib.colors.Normalize(vmin=np.min(levels), vmax=np.max(levels))
+
     for level, color in zip(levels, colors):
         xy_paths = _get_xy_paths(x, y, Z, level, min_jump, max_jump)
 
+        if color is None:
+            color = cmap(norm(level))
+
         for x_, y_ in xy_paths:
-            # finally, plot the contour
             plt.plot(x_, y_, linestyle=linestyles, color=color, alpha=alpha)
 
     return plt
