@@ -1,0 +1,11 @@
+*.pyc
+*.swp
+*.prof
+MANIFEST
+dist/
+build/
+.coverage
+.cache/
+*.egg-info/
+.pytest_cache/
+.tox/
