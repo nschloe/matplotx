@@ -51,6 +51,9 @@ def contour(
         for x_, y_ in xy_paths:
             plt.plot(x_, y_, linestyle=linestyles, color=color, alpha=alpha)
 
+    plt.xlim(x[0], x[-1])
+    plt.ylim(y[0], y[-1])
+
     return plt
 
 
