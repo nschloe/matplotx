@@ -16,7 +16,7 @@ Some useful extensions for [Matplotlib](https://matplotlib.org/).
 
 | <img src="https://nschloe.github.io/mplx/contour-mpl.svg" width="100%"> | <img src="https://nschloe.github.io/mplx/contour-mplx.svg" width="100%"> |
 | :---------------------------------------------------------------------: | :----------------------------------------------------------------------: |
-|                              `plt.contour`                              |                       `mplx.contour(max_jump=1.0)                        |
+|                              `plt.contour`                              |                       `mplx.contour(max_jump=1.0)`                       |
 
 Matplotlib has problems with contour plots of functions that have discontinuities. The
 software has no way to tell discontinuities and very sharp, but continuous cliffs apart,
