@@ -134,6 +134,9 @@ def contour(
         T = list(T)
         T = np.asarray(T)
 
+        if len(T) == 0:
+            continue
+
         is_domino_match = np.all(T[:-1, 1] == T[1:, 0], axis=1)
         split_idx = np.where(~is_domino_match)[0] + 1
         edge_paths = np.split(T, split_idx)

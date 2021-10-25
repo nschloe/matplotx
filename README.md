@@ -10,7 +10,10 @@
 [![LGTM](https://img.shields.io/lgtm/grade/python/github/nschloe/mplx.svg?style=flat-square)](https://lgtm.com/projects/g/nschloe/mplx)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
+### Contour plots for functions with discontinuities
+
+
 
 
 ### License
-mplx is published under the [GPL-3.0 license](LICENSE).
+mplx is published under the [MIT](LICENSE).
