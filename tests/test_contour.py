@@ -35,7 +35,9 @@ def test_paths():
     z = X + 1j * Y
     vals = np.angle(z)
 
-    paths = mplx.main._get_xy_paths(x, y, vals, level=0.5, max_jump=5.0, min_jump=None)
+    paths = mplx._contour._get_xy_paths(
+        x, y, vals, level=0.5, max_jump=5.0, min_jump=None
+    )
     assert len(paths) == 1
     assert paths[0].shape == (2, 9)
 
