@@ -5,7 +5,7 @@ Some useful extensions for [Matplotlib](https://matplotlib.org/).
 [![PyPi Version](https://img.shields.io/pypi/v/mplx.svg?style=flat-square)](https://pypi.org/project/mplx/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/mplx.svg?style=flat-square)](https://pypi.org/project/mplx/)
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/mplx.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/nschloe/mplx)
-[![PyPi downloads](https://img.shields.io/pypi/dm/mplx.svg?style=flat-square)](https://pypistats.org/packages/mplx)
+[![Downloads](https://pepy.tech/badge/mplx/month)](https://pepy.tech/project/mplx)
 
 [![gh-actions](https://img.shields.io/github/workflow/status/nschloe/mplx/ci?style=flat-square)](https://github.com/nschloe/mplx/actions?query=workflow%3Aci)
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/mplx.svg?style=flat-square)](https://codecov.io/gh/nschloe/mplx)
