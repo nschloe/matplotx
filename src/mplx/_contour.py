@@ -23,6 +23,8 @@ def _get_xy_from_meshgrid(X, Y, Z):
     x = X[0]
     y = Y[:, 0]
     Z = Z.T
+
+    # assert (x.shape, y.shape) == Z.shape
     return x, y, Z
 
 
@@ -87,6 +89,7 @@ def _get_xy_paths(x, y, Z, level=None, min_jump=None, max_jump=None):
     # horizontal and vertical edges
     # horiz.shape = (nx - 1, ny)
     # verti.shape = (nx, ny - 1)
+
     nx = len(x)
     ny = len(y)
     horiz = np.ones((nx - 1, ny), dtype=bool)
