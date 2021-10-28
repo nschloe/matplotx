@@ -1,3 +1,3 @@
-from ._contour import contour
+from ._contour import contour, discontour
 
-__all__ = ["contour"]
+__all__ = ["contour", "discontour"]

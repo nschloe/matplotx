@@ -44,8 +44,9 @@ Z = X + 1j * Y
 vals = np.imag(np.log(Z))
 
 # plt.contour(X, Y, vals, levels=[-2.0, -1.0, 0.0, 1.0, 2.0])  # draws wrong lines
+
 mplx.contour(X, Y, vals, levels=[-2.0, -1.0, 0.0, 1.0, 2.0], max_jump=1.0)
-mplx.contour(X, Y, vals, levels=[0.0], min_jump=1.0, linestyles=":")
+mplx.discontour(X, Y, vals, min_jump=1.0, linestyle=":", color="r")
 
 plt.gca().set_aspect("equal")
 plt.show()

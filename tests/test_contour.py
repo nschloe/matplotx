@@ -33,7 +33,7 @@ def test_paths():
     y = np.linspace(-1.0, 1.0, 11)
     X, Y = np.meshgrid(x, y)
     z = X + 1j * Y
-    vals = np.angle(z)
+    vals = np.angle(z).T
 
     paths = mplx._contour._get_xy_paths(
         x, y, vals, level=0.5, max_jump=5.0, min_jump=None
