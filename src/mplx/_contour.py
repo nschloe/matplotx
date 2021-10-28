@@ -7,17 +7,7 @@ import numpy as np
 from numpy.typing import ArrayLike
 
 
-def contour(
-    X: ArrayLike,
-    Y: ArrayLike,
-    Z: ArrayLike,
-    levels: list[float],
-    min_jump: float | None = None,
-    max_jump: float | None = None,
-    colors: str | list[str | None] | None = None,
-    linestyles: str | None = None,
-    alpha: float | None = None,
-):
+def _get_xy_from_meshgrid(X, Y, Z):
     X = np.asarray(X)
     Y = np.asarray(Y)
     Z = np.asarray(Z)
@@ -33,6 +23,21 @@ def contour(
     x = X[0]
     y = Y[:, 0]
     Z = Z.T
+    return x, y, Z
+
+
+def contour(
+    X: ArrayLike,
+    Y: ArrayLike,
+    Z: ArrayLike,
+    levels: list[float],
+    min_jump: float | None = None,
+    max_jump: float | None = None,
+    colors: str | list[str | None] | None = None,
+    linestyles: str | None = None,
+    alpha: float | None = None,
+):
+    x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
 
     if isinstance(colors, str) or colors is None:
         colors = [colors] * len(levels)
@@ -57,18 +62,46 @@ def contour(
     return plt
 
 
-def _get_xy_paths(x, y, Z, level, min_jump, max_jump):
-    # for each quad, check if the contour passes through it
-    is_below = Z < level
+def discontour(
+    X: ArrayLike,
+    Y: ArrayLike,
+    Z: ArrayLike,
+    min_jump: float | None = None,
+    color: str | None = None,
+    linestyle: str | None = None,
+    alpha: float | None = None,
+):
+    x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
 
+    xy_paths = _get_xy_paths(x, y, Z, min_jump=min_jump)
+    for x_, y_ in xy_paths:
+        plt.plot(x_, y_, linestyle=linestyle, color=color, alpha=alpha)
+
+    plt.xlim(x[0], x[-1])
+    plt.ylim(y[0], y[-1])
+
+    return plt
+
+
+def _get_xy_paths(x, y, Z, level=None, min_jump=None, max_jump=None):
     # horizontal and vertical edges
     # horiz.shape = (nx - 1, ny)
     # verti.shape = (nx, ny - 1)
-    horiz = ~np.logical_xor(is_below[:-1, :], ~is_below[1:, :])
-    verti = ~np.logical_xor(is_below[:, :-1], ~is_below[:, 1:])
+    nx = len(x)
+    ny = len(y)
+    horiz = np.ones((nx - 1, ny), dtype=bool)
+    verti = np.ones((nx, ny - 1), dtype=bool)
+
+    if level is not None:
+        # for each quad, check if the contour passes through it
+        is_below = Z < level
+        horiz &= ~np.logical_xor(is_below[:-1, :], ~is_below[1:, :])
+        verti &= ~np.logical_xor(is_below[:, :-1], ~is_below[:, 1:])
+
     if min_jump is not None:
         horiz &= np.abs(Z[:-1, :] - Z[1:, :]) > min_jump
         verti &= np.abs(Z[:, :-1] - Z[:, 1:]) > min_jump
+
     if max_jump is not None:
         horiz &= np.abs(Z[:-1, :] - Z[1:, :]) < max_jump
         verti &= np.abs(Z[:, :-1] - Z[:, 1:]) < max_jump
@@ -162,7 +195,11 @@ def _get_xy_paths(x, y, Z, level, min_jump, max_jump):
         node_paths = [np.concatenate([ep[:, 0], [ep[-1, 1]]]) for ep in edge_paths]
 
         # iterate over the paths, find the coordinates of the nodes, and plot
-        Z_level = Z - level
+        if level is None:
+            Z_level = None
+        else:
+            Z_level = Z - level
+
         for path in node_paths:
             # translate the indices into coordinates
             node_type, i_, j_ = path.T
@@ -184,18 +221,26 @@ def _get_xy_paths(x, y, Z, level, min_jump, max_jump):
             # x stays the same
             x_[is_vertical] = x[i]
             # linear interpolation
-            z_ij1 = Z_level[i, j + 1]
-            z_ij = Z_level[i, j]
-            y_[is_vertical] = (y[j] * z_ij1 - y[j + 1] * z_ij) / (z_ij1 - z_ij)
+            if Z_level is None:
+                # go through the middle
+                y_[is_vertical] = (y[j] + y[j + 1]) / 2
+            else:
+                # linear interpolation
+                z_ij1 = Z_level[i, j + 1]
+                z_ij = Z_level[i, j]
+                y_[is_vertical] = (y[j] * z_ij1 - y[j + 1] * z_ij) / (z_ij1 - z_ij)
 
             # nodes on horizontal edges
             is_horizontal = node_type == 2
             i = i_[is_horizontal]
             j = j_[is_horizontal]
-            # linear interpolation
-            z_i1j = Z_level[i + 1, j]
-            z_ij = Z_level[i, j]
-            x_[is_horizontal] = (x[i] * z_i1j - x[i + 1] * z_ij) / (z_i1j - z_ij)
+            if Z_level is None:
+                x_[is_horizontal] = (x[i] + x[i + 1]) / 2
+            else:
+                # linear interpolation
+                z_i1j = Z_level[i + 1, j]
+                z_ij = Z_level[i, j]
+                x_[is_horizontal] = (x[i] * z_i1j - x[i + 1] * z_ij) / (z_i1j - z_ij)
             # y stays the same
             y_[is_horizontal] = y[j]
 
