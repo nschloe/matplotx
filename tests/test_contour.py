@@ -22,8 +22,8 @@ def test_plot():
     # mplx.contour(X, Y, vals, levels=[0.5], linestyles="-")
     # print("t", time.time() - t)
 
-    mplx.contour(X, Y, vals, levels=[0.5], max_jump=5.0, linestyles="-")
-    mplx.contour(X, Y, vals, levels=[0.5], min_jump=5.0, linestyles=":")
+    mplx.contour(X, Y, vals, levels=[0.5], max_jump=5.0)
+    mplx.discontour(X, Y, vals, min_jump=5.0, linestyle=":", color="r")
     plt.gca().set_aspect("equal")
     plt.show()
 

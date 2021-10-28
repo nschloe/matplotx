@@ -4,6 +4,7 @@ import matplotlib.colors
 import matplotlib.pyplot as plt
 import networkx
 import numpy as np
+from matplotlib.collections import LineCollection
 from numpy.typing import ArrayLike
 
 
@@ -36,7 +37,6 @@ def contour(
     min_jump: float | None = None,
     max_jump: float | None = None,
     colors: str | list[str | None] | None = None,
-    linestyles: str | None = None,
     alpha: float | None = None,
 ):
     x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
@@ -49,14 +49,19 @@ def contour(
     cmap = plt.get_cmap()
     norm = matplotlib.colors.Normalize(vmin=np.min(levels), vmax=np.max(levels))
 
+    lines = []
+    cols = []
     for level, color in zip(levels, colors):
         xy_paths = _get_xy_paths(x, y, Z, level, min_jump, max_jump)
 
         if color is None:
             color = cmap(norm(level))
 
-        for x_, y_ in xy_paths:
-            plt.plot(x_, y_, linestyle=linestyles, color=color, alpha=alpha)
+        lines += [p.T for p in xy_paths]
+        cols += [color] * len(xy_paths)
+
+    lc = LineCollection(lines, colors=cols, alpha=alpha)
+    plt.gca().add_collection(lc)
 
     plt.xlim(x[0], x[-1])
     plt.ylim(y[0], y[-1])
@@ -76,8 +81,12 @@ def discontour(
     x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
 
     xy_paths = _get_xy_paths(x, y, Z, min_jump=min_jump)
-    for x_, y_ in xy_paths:
-        plt.plot(x_, y_, linestyle=linestyle, color=color, alpha=alpha)
+    lines = [p.T for p in xy_paths]
+    cols = [color] * len(xy_paths)
+    linestyles = [linestyle] * len(xy_paths)
+
+    lc = LineCollection(lines, colors=cols, alpha=alpha, linestyles=linestyles)
+    plt.gca().add_collection(lc)
 
     plt.xlim(x[0], x[-1])
     plt.ylim(y[0], y[-1])
@@ -247,7 +256,6 @@ def _get_xy_paths(x, y, Z, level=None, min_jump=None, max_jump=None):
             # y stays the same
             y_[is_horizontal] = y[j]
 
-            # finally, plot the contour
             xy_paths.append(np.array([x_, y_]))
 
     return xy_paths
