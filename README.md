@@ -1,6 +1,7 @@
-# mplx
-
-Some useful extensions for [Matplotlib](https://matplotlib.org/).
+<p align="center">
+  <a href="https://github.com/nschloe/mplx"><img alt="mplx" src="https://nschloe.github.io/mplx/mplx-logo.svg" width="70%"></a>
+  <p align="center">Some useful extensions for [Matplotlib](https://matplotlib.org/).</p>
+</p>
 
 [![PyPi Version](https://img.shields.io/pypi/v/mplx.svg?style=flat-square)](https://pypi.org/project/mplx/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/mplx.svg?style=flat-square)](https://pypi.org/project/mplx/)
