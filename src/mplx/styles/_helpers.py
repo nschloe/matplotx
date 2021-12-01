@@ -1,6 +1,3 @@
-"""
-https://draculatheme.com/
-"""
 import matplotlib as mpl
 
 

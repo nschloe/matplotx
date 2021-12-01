@@ -99,7 +99,7 @@ def plot_histograms(ax, prng, nb_samples=10000):
     return ax
 
 
-def plot_figure(style_label=""):
+def plot_figure(style_label):
     """Setup and plot the demonstration figure with a given style."""
     # Use a dedicated RandomState instance to draw the same "random" values
     # across the different figures.
@@ -114,17 +114,14 @@ def plot_figure(style_label=""):
     fig, axs = plt.subplots(
         ncols=5, nrows=1, num=style_label, figsize=fig_size, squeeze=True
     )
-    axs[0].set_ylabel(style_label)
+    fig.suptitle(style_label)
 
     plot_scatter(axs[0], prng)
-    # plot_image_and_patch(axs[1], prng)
     plot_bar_graphs(axs[1], prng)
     plot_colored_circles(axs[2], prng)
     plot_colored_sinusoidal_lines(axs[3])
     plot_histograms(axs[4], prng)
-
     fig.tight_layout()
-
     return fig
 
 
@@ -160,7 +157,7 @@ if __name__ == "__main__":
 
     for name, scheme in schemes.items():
         with plt.style.context(scheme):
-            fig = plot_figure()
+            fig = plot_figure(name)
 
         # plt.savefig("dracula.svg", bbox_inches="tight")
         plt.savefig(f"{_normalize(name)}.svg")
