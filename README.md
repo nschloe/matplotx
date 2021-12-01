@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/nschloe/mplx"><img alt="mplx" src="https://nschloe.github.io/mplx/mplx-logo.svg" width="70%"></a>
+  <a href="https://github.com/nschloe/mplx"><img alt="mplx" src="https://nschloe.github.io/mplx/mplx-logo.svg" width="55%"></a>
   <p align="center">Some useful extensions for [Matplotlib](https://matplotlib.org/).</p>
 </p>
 
