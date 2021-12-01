@@ -1,6 +1,8 @@
 """
 https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html
 """
+import re
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -126,15 +128,41 @@ def plot_figure(style_label=""):
     return fig
 
 
+def _normalize(string):
+    string = re.sub("[^0-9a-zA-Z ]+", "", string)
+    return string.replace(" ", "-").lower()
+
+
 if __name__ == "__main__":
     import mplx
 
-    # with plt.style.context(mplx.styles.dracula):
-    #      fig = plot_figure(style_label="dracula")
-    # with plt.style.context(mplx.styles.tokyo_night["day"]):
-    with plt.style.context(mplx.styles.pitaya_smoothie["light"]):
-        fig = plot_figure()
+    schemes = {
+        "Aura (dark)": mplx.styles.aura["dark"],
+        "Aura (dark soft)": mplx.styles.aura["dark-soft"],
+        "ayu (dark)": mplx.styles.ayu["dark"],
+        "ayu (light)": mplx.styles.ayu["light"],
+        "ayu (mirage)": mplx.styles.ayu["mirage"],
+        "Challenger Deep": mplx.styles.challenger_deep,
+        "Pitaya Smoothie (dark)": mplx.styles.pitaya_smoothie["dark"],
+        "Pitaya Smoothie (light)": mplx.styles.pitaya_smoothie["light"],
+        "Pacoty": mplx.styles.pacoty,
+        "Dracula": mplx.styles.dracula,
+        "gruvbox (dark)": mplx.styles.gruvbox["dark"],
+        "gruvbox (light)": mplx.styles.gruvbox["light"],
+        "Nord": mplx.styles.nord,
+        "One Dark": mplx.styles.onedark,
+        "Solarized (dark)": mplx.styles.solarized["dark"],
+        "Solarized (light)": mplx.styles.solarized["light"],
+        "Tokyo Night (storm)": mplx.styles.tokyo_night["storm"],
+        "Tokyo Night (night)": mplx.styles.tokyo_night["night"],
+        "Tokyo Night (day)": mplx.styles.tokyo_night["day"],
+    }
 
-    # plt.savefig("dracula.svg", bbox_inches="tight")
-    plt.savefig("tn.svg")
-    # plt.show()
+    for name, scheme in schemes.items():
+        with plt.style.context(scheme):
+            fig = plot_figure()
+
+        # plt.savefig("dracula.svg", bbox_inches="tight")
+        plt.savefig(f"{_normalize(name)}.svg")
+        # plt.show()
+        plt.close()
