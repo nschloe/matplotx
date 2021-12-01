@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/nschloe/mplx"><img alt="mplx" src="https://nschloe.github.io/mplx/mplx-logo.svg" width="55%"></a>
-  <p align="center">Some useful extensions for [Matplotlib](https://matplotlib.org/).</p>
+  <p align="center">Some useful extensions for <a href="https://matplotlib.org/">Matplotlib</a>.</p>
 </p>
 
 [![PyPi Version](https://img.shields.io/pypi/v/mplx.svg?style=flat-square)](https://pypi.org/project/mplx/)
