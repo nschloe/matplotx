@@ -129,9 +129,11 @@ def plot_figure(style_label=""):
 if __name__ == "__main__":
     import mplx
 
-    with plt.style.context(mplx.styles.dracula):
-        fig = plot_figure(style_label="dracula")
+    # with plt.style.context(mplx.styles.dracula):
+    #      fig = plot_figure(style_label="dracula")
+    with plt.style.context(mplx.styles.gruvbox["dark"]):
+        fig = plot_figure()
 
     # plt.savefig("dracula.svg", bbox_inches="tight")
-    plt.savefig("dracula.svg")
+    plt.savefig("gb.svg")
     # plt.show()
