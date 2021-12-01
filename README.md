@@ -14,7 +14,7 @@ Some useful extensions for [Matplotlib](https://matplotlib.org/).
 
 ### Extra styles
 
-mplx contains
+mplx contains numerous extra color schemes.
 
 <!--pytest-codeblocks:skip-->
 
