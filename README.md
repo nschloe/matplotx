@@ -14,7 +14,10 @@ Some useful extensions for [Matplotlib](https://matplotlib.org/).
 
 ### Extra styles
 
-mplx contains numerous extra color schemes.
+mplx contains numerous extra color schemes, e.g.,
+[Dracula](https://draculatheme.com/), [Nord](https://www.nordtheme.com/),
+[gruvbox](https://github.com/morhetz/gruvbox), and
+[Solarized](https://ethanschoonover.com/solarized/).
 
 <!--pytest-codeblocks:skip-->
 
