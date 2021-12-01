@@ -131,9 +131,9 @@ if __name__ == "__main__":
 
     # with plt.style.context(mplx.styles.dracula):
     #      fig = plot_figure(style_label="dracula")
-    with plt.style.context(mplx.styles.nord):
+    with plt.style.context(mplx.styles.tokyo_night["day"]):
         fig = plot_figure()
 
     # plt.savefig("dracula.svg", bbox_inches="tight")
-    plt.savefig("nord.svg")
+    plt.savefig("tn.svg")
     # plt.show()
