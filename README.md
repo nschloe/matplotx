@@ -1,6 +1,7 @@
-# mplx
-
-Some useful extensions for [Matplotlib](https://matplotlib.org/).
+<p align="center">
+  <a href="https://github.com/nschloe/mplx"><img alt="mplx" src="https://nschloe.github.io/mplx/mplx-logo.svg" width="55%"></a>
+  <p align="center">Some useful extensions for <a href="https://matplotlib.org/">Matplotlib</a>.</p>
+</p>
 
 [![PyPi Version](https://img.shields.io/pypi/v/mplx.svg?style=flat-square)](https://pypi.org/project/mplx/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/mplx.svg?style=flat-square)](https://pypi.org/project/mplx/)
@@ -11,6 +12,48 @@ Some useful extensions for [Matplotlib](https://matplotlib.org/).
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/mplx.svg?style=flat-square)](https://codecov.io/gh/nschloe/mplx)
 [![LGTM](https://img.shields.io/lgtm/grade/python/github/nschloe/mplx.svg?style=flat-square)](https://lgtm.com/projects/g/nschloe/mplx)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
+
+### Extra styles
+
+mplx contains numerous extra color schemes, e.g.,
+[Dracula](https://draculatheme.com/), [Nord](https://www.nordtheme.com/),
+[gruvbox](https://github.com/morhetz/gruvbox), and
+[Solarized](https://ethanschoonover.com/solarized/).
+
+<!--pytest-codeblocks:skip-->
+
+```python
+import matplotlib.pyplot as plt
+import mplx
+
+with plt.style.context(mplx.styles.dracula):
+    # create figure
+    pass
+```
+
+|    <img src="https://nschloe.github.io/mplx/aura-dark-soft.svg" width="100%">     |
+| :-------------------------------------------------------------------------------: |
+|       <img src="https://nschloe.github.io/mplx/aura-dark.svg" width="100%">       |
+|       <img src="https://nschloe.github.io/mplx/ayu-dark.svg" width="100%">        |
+|       <img src="https://nschloe.github.io/mplx/ayu-light.svg" width="100%">       |
+|      <img src="https://nschloe.github.io/mplx/ayu-mirage.svg" width="100%">       |
+|    <img src="https://nschloe.github.io/mplx/challenger-deep.svg" width="100%">    |
+|        <img src="https://nschloe.github.io/mplx/dracula.svg" width="100%">        |
+|      <img src="https://nschloe.github.io/mplx/github-dark.svg" width="100%">      |
+|     <img src="https://nschloe.github.io/mplx/github-dimmed.svg" width="100%">     |
+|     <img src="https://nschloe.github.io/mplx/github-light.svg" width="100%">      |
+|     <img src="https://nschloe.github.io/mplx/gruvbox-dark.svg" width="100%">      |
+|     <img src="https://nschloe.github.io/mplx/gruvbox-light.svg" width="100%">     |
+|         <img src="https://nschloe.github.io/mplx/nord.svg" width="100%">          |
+|       <img src="https://nschloe.github.io/mplx/one-dark.svg" width="100%">        |
+|        <img src="https://nschloe.github.io/mplx/pacoty.svg" width="100%">         |
+| <img src="https://nschloe.github.io/mplx/pitaya-smoothie-dark.svg" width="100%">  |
+| <img src="https://nschloe.github.io/mplx/pitaya-smoothie-light.svg" width="100%"> |
+|    <img src="https://nschloe.github.io/mplx/solarized-dark.svg" width="100%">     |
+|    <img src="https://nschloe.github.io/mplx/solarized-light.svg" width="100%">    |
+|    <img src="https://nschloe.github.io/mplx/tokyo-night-day.svg" width="100%">    |
+|   <img src="https://nschloe.github.io/mplx/tokyo-night-night.svg" width="100%">   |
+|   <img src="https://nschloe.github.io/mplx/tokyo-night-storm.svg" width="100%">   |
 
 ### Contour plots for functions with discontinuities
 
