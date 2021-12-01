@@ -8,10 +8,10 @@ challenger_deep = generate_style(
     foreground="cbe3e7",
     cycle=[
         "91ddff",  # blue
-        "ff8080",  # red
-        "95ffa4",  # green
-        "c991e1",  # purple
         "ffe9aa",  # yellow
+        "95ffa4",  # green
+        "ff8080",  # red
+        "c991e1",  # purple
         "767676",  # medium gray
         "aaffe4",  # cyan
     ],

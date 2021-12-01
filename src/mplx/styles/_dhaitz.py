@@ -40,7 +40,14 @@ pitaya_smoothie = {
             "axes.edgecolor": "white",
             "grid.color": "white",
             "axes.prop_cycle": mpl.cycler(
-                color=["7A76C2", "ff6e9c98", "f62196", "18c0c4", "f3907e", "66E9EC"]
+                color=[
+                    "7A76C2",  # purple
+                    "f3907e",  # orange
+                    "18c0c4",  # teal
+                    "ff6e9c98",  # red
+                    "66E9EC",  # light teal
+                    "f62196",  # magenta
+                ]
             ),
             "figure.facecolor": "fefeff",
             "savefig.facecolor": "fefeff",
@@ -57,7 +64,14 @@ pitaya_smoothie = {
             "axes.edgecolor": "white",
             "grid.color": "2A3459",
             "axes.prop_cycle": mpl.cycler(
-                color=["18c0c4", "f62196", "A267F5", "f3907e", "ffe46b", "fefeff"]
+                color=[
+                    "A267F5",  # purple
+                    "f3907e",  # light orange
+                    "18c0c4",  # teal
+                    "f62196",  # magenta
+                    "ffe46b",  # yellow
+                    "fefeff",  # white
+                ]
             ),
             "figure.facecolor": "212946",
             "savefig.facecolor": "212946",
@@ -77,7 +91,14 @@ pacoty = _merge(
         "axes.edgecolor": "white",
         "grid.color": "white",
         "axes.prop_cycle": mpl.cycler(
-            color=["5A5B9F", "D94F70", "009473", "F0C05A", "7BC4C4", "FF6F61"],
+            color=[
+                "5A5B9F",  # purple
+                "FF6F61",  # orange
+                "009473",  # green
+                "D94F70",  # red
+                "7BC4C4",  # teal
+                "F0C05A",  # yellow
+            ],
         ),
         "figure.facecolor": "white",
         "savefig.facecolor": "white",
