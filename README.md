@@ -39,6 +39,9 @@ with plt.style.context(mplx.styles.dracula):
 |      <img src="https://nschloe.github.io/mplx/ayu-mirage.svg" width="100%">       |
 |    <img src="https://nschloe.github.io/mplx/challenger-deep.svg" width="100%">    |
 |        <img src="https://nschloe.github.io/mplx/dracula.svg" width="100%">        |
+|      <img src="https://nschloe.github.io/mplx/github-dark.svg" width="100%">      |
+|     <img src="https://nschloe.github.io/mplx/github-dimmed.svg" width="100%">     |
+|     <img src="https://nschloe.github.io/mplx/github-light.svg" width="100%">      |
 |     <img src="https://nschloe.github.io/mplx/gruvbox-dark.svg" width="100%">      |
 |     <img src="https://nschloe.github.io/mplx/gruvbox-light.svg" width="100%">     |
 |         <img src="https://nschloe.github.io/mplx/nord.svg" width="100%">          |
