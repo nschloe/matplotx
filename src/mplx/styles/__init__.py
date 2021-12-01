@@ -1,4 +1,5 @@
 from ._aura import aura
+from ._ayu import ayu
 from ._challenger_deep import challenger_deep
 from ._dracula import dracula
 from ._gruvbox import gruvbox
@@ -9,6 +10,7 @@ from ._tokyo_night import tokyo_night
 
 __all__ = [
     "aura",
+    "ayu",
     "challenger_deep",
     "dracula",
     "gruvbox",
