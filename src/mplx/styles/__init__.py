@@ -1,6 +1,7 @@
 from ._aura import aura
 from ._ayu import ayu
 from ._challenger_deep import challenger_deep
+from ._dhaitz import pacoty, pitaya_smoothie
 from ._dracula import dracula
 from ._gruvbox import gruvbox
 from ._nord import nord
@@ -16,6 +17,8 @@ __all__ = [
     "gruvbox",
     "nord",
     "onedark",
+    "pacoty",
+    "pitaya_smoothie",
     "solarized",
     "tokyo_night",
 ]

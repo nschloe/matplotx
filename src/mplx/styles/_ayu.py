@@ -3,7 +3,6 @@ https://github.com/ayu-theme
 """
 from ._helpers import generate_style
 
-
 # https://github.com/ayu-theme/ayu-vim/blob/master/colors/ayu.vim
 ayu = {
     "dark": generate_style(

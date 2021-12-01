@@ -4,7 +4,6 @@ https://github.com/folke/tokyonight.nvim/blob/main/lua/tokyonight/colors.lua
 """
 from ._helpers import generate_style
 
-
 tokyo_night = {
     # https://github.com/folke/tokyonight.nvim/blob/main/extras/alacritty_tokyonight_storm.yml
     "storm": generate_style(

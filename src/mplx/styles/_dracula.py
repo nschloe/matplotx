@@ -3,7 +3,6 @@ https://draculatheme.com/
 """
 from ._helpers import generate_style
 
-
 dracula = generate_style(
     foreground="f8f8f2",
     background="282a36",

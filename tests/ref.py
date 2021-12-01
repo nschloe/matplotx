@@ -1,8 +1,8 @@
 """
 https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html
 """
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Fixing random state for reproducibility
 np.random.seed(19680801)
@@ -131,7 +131,8 @@ if __name__ == "__main__":
 
     # with plt.style.context(mplx.styles.dracula):
     #      fig = plot_figure(style_label="dracula")
-    with plt.style.context(mplx.styles.tokyo_night["day"]):
+    # with plt.style.context(mplx.styles.tokyo_night["day"]):
+    with plt.style.context(mplx.styles.pitaya_smoothie["light"]):
         fig = plot_figure()
 
     # plt.savefig("dracula.svg", bbox_inches="tight")

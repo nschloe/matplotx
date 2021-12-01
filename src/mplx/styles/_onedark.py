@@ -3,7 +3,6 @@ https://github.com/atom/atom/blob/master/packages/one-dark-syntax/styles/colors.
 """
 from ._helpers import generate_style
 
-
 onedark = generate_style(
     background="282c34",
     foreground="abb2bf",
