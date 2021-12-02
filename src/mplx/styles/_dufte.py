@@ -41,35 +41,6 @@ dufte = {
     "grid.linewidth": _stroke_width,
     "axes.xmargin": 0,
     "axes.ymargin": 0,
-    # mpl uses category10 by default, dufte uses cat20,
-    # <https://github.com/d3/d3-3.x-api-reference/blob/master/Ordinal-Scales.md#category20>,
-    # which basically adds one pale color version of each color in cat10. Change
-    # the order such that the first 10 are cat10.
-    "axes.prop_cycle": mpl.cycler(
-        color=[
-            "1f77b4",
-            "ff7f0e",
-            "2ca02c",
-            "d62728",
-            "9467bd",
-            "8c564b",
-            "e377c2",
-            "7f7f7f",
-            "bcbd22",
-            "17becf",
-            # pale variants:
-            "aec7e8",
-            "ffbb78",
-            "98df8a",
-            "ff9896",
-            "c5b0d5",
-            "c49c94",
-            "f7b6d2",
-            "c7c7c7",
-            "dbdb8d",
-            "9edae5",
-        ],
-    ),
     "axes.titlepad": 40,
     "axes.titlesize": 14,
 }

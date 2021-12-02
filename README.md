@@ -133,7 +133,8 @@ The two mplx ingredients are:
 mplx contains numerous extra color schemes, e.g.,
 [Dracula](https://draculatheme.com/), [Nord](https://www.nordtheme.com/),
 [gruvbox](https://github.com/morhetz/gruvbox), and
-[Solarized](https://ethanschoonover.com/solarized/).
+[Solarized](https://ethanschoonover.com/solarized/),
+[the revised Tableau colors](https://www.tableau.com/about/blog/2016/7/colors-upgrade-tableau-10-56782).
 
 <!--pytest-codeblocks:skip-->
 
@@ -169,6 +170,8 @@ with plt.style.context(mplx.styles.dracula):
 | <img src="https://nschloe.github.io/mplx/pitaya-smoothie-light.svg" width="100%"> |
 |    <img src="https://nschloe.github.io/mplx/solarized-dark.svg" width="100%">     |
 |    <img src="https://nschloe.github.io/mplx/solarized-light.svg" width="100%">    |
+|      <img src="https://nschloe.github.io/mplx/tableau-10.svg" width="100%">       |
+|      <img src="https://nschloe.github.io/mplx/tableau-20.svg" width="100%">       |
 |    <img src="https://nschloe.github.io/mplx/tokyo-night-day.svg" width="100%">    |
 |   <img src="https://nschloe.github.io/mplx/tokyo-night-night.svg" width="100%">   |
 |   <img src="https://nschloe.github.io/mplx/tokyo-night-storm.svg" width="100%">   |
