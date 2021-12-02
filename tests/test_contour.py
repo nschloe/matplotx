@@ -26,6 +26,7 @@ def test_plot():
     mplx.discontour(X, Y, vals, min_jump=5.0, linestyle=":", color="r")
     plt.gca().set_aspect("equal")
     plt.show()
+    plt.close()
 
 
 def test_paths():
@@ -53,6 +54,7 @@ def test_closed_path():
     mplx.contour(X, Y, Z, levels=[0.75])
     plt.gca().set_aspect("equal")
     plt.show()
+    plt.close()
 
 
 def test_separate_paths():
@@ -66,6 +68,7 @@ def test_separate_paths():
     mplx.contour(X, Y, Z, levels=[0.75])
     plt.gca().set_aspect("equal")
     plt.show()
+    plt.close()
 
 
 def test_multiple_levels():
@@ -79,6 +82,7 @@ def test_multiple_levels():
     mplx.contour(X, Y, Z, levels=[0.5, 0.75])
     plt.gca().set_aspect("equal")
     plt.show()
+    plt.close()
 
 
 if __name__ == "__main__":
