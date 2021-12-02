@@ -56,9 +56,10 @@ y = [offset * x0 / (x0 + 1) + 0.1 * rng.random(len(x0)) for offset in offsets]
 with plt.style.context(mplx.styles.dufte):
     for yy, label in zip(y, labels):
         plt.plot(x0, yy, label=label)
-plt.xlabel("distance [m]")
-mplx.ylabel_top("voltage [V]")  # move ylabel to the top, rotate
-mplx.line_labels()  # line labels to the right
+    plt.xlabel("distance [m]")
+    mplx.ylabel_top("voltage [V]")  # move ylabel to the top, rotate
+    mplx.line_labels()  # line labels to the right
+    plt.show()
 ```
 
 The three mplx ingredients are:
