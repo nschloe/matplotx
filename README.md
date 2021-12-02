@@ -19,6 +19,14 @@ Install with
 pip install mplx
 ```
 
+and use in Python with
+
+```python
+import mplx
+```
+
+See below for what mplx can do.
+
 ### Clean line plots
 
 <a href="tests/dufte_comparison.py">
