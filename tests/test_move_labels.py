@@ -1,6 +1,6 @@
 import pytest
 
-import mplx
+import matplotx
 
 
 def assert_equality(a, b, eps):
@@ -17,5 +17,5 @@ def assert_equality(a, b, eps):
     ],
 )
 def test_move_labels(pos, dist, ref):
-    out = mplx._labels._move_min_distance(pos, dist)
+    out = matplotx._labels._move_min_distance(pos, dist)
     assert_equality(out, ref, 1.0e-5)

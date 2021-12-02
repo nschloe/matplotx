@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-import mplx
+import matplotx
 
 
 def line():
@@ -23,22 +23,22 @@ def line():
         plt.close()
 
     # dufte
-    with plt.style.context(mplx.styles.dufte):
+    with plt.style.context(matplotx.styles.dufte):
         for yy, label in zip(y, labels):
             plt.plot(x0, yy, label=label)
         plt.xlabel("distance [m]")
-        mplx.ylabel_top("voltage [V]")
-        mplx.line_labels()
+        matplotx.ylabel_top("voltage [V]")
+        matplotx.line_labels()
         plt.savefig("ex1-dufte.svg", bbox_inches="tight")
         plt.close()
 
     # dufte
-    with plt.style.context(mplx.styles.dracula | mplx.styles.dufte):
+    with plt.style.context(matplotx.styles.dracula | matplotx.styles.dufte):
         for yy, label in zip(y, labels):
             plt.plot(x0, yy, label=label)
         plt.xlabel("distance [m]")
-        mplx.ylabel_top("voltage [V]")
-        mplx.line_labels()
+        matplotx.ylabel_top("voltage [V]")
+        matplotx.line_labels()
         plt.savefig("ex1-dufte-dracula.svg", bbox_inches="tight")
         plt.close()
 
@@ -55,17 +55,17 @@ def bars():
         plt.savefig("bars-mpl.svg", transparent=True, bbox_inches="tight")
         plt.close()
 
-    with plt.style.context(mplx.styles.dufte_bar):
+    with plt.style.context(matplotx.styles.dufte_bar):
         plt.bar(xpos, vals)
         plt.xticks(xpos, labels)
         plt.title("average temperature [°C]")
         plt.savefig("bars-dufte1.svg", transparent=True, bbox_inches="tight")
         plt.close()
 
-    with plt.style.context(mplx.styles.dufte_bar):
+    with plt.style.context(matplotx.styles.dufte_bar):
         plt.bar(xpos, vals)
         plt.xticks(xpos, labels)
-        mplx.show_bar_values("{:.2f}")
+        matplotx.show_bar_values("{:.2f}")
         plt.title("average temperature [°C]")
         plt.savefig("bars-dufte2.svg", transparent=True, bbox_inches="tight")
         plt.close()

@@ -1,4 +1,4 @@
-# mplx Code of Conduct
+# matplotx Code of Conduct
 
 ## Our Pledge
 

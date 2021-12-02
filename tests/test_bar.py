@@ -1,16 +1,16 @@
 import matplotlib.pyplot as plt
 
-import mplx
+import matplotx
 
 
 def test_bar():
-    with plt.style.context(mplx.styles.dufte_bar):
+    with plt.style.context(matplotx.styles.dufte_bar):
         labels = ["label 1", "label 2"]
         vals = [2.1, 6.3]
         xpos = range(len(vals))
         plt.bar(xpos, vals)
         plt.xticks(xpos, labels)
-        mplx.show_bar_values("{:.2f}")
+        matplotx.show_bar_values("{:.2f}")
         plt.title("some title")
         plt.close()
 

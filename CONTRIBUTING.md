@@ -1,8 +1,8 @@
-# mplx contributing guidelines
+# matplotx contributing guidelines
 
-The mplx community appreciates your contributions via issues and
+The matplotx community appreciates your contributions via issues and
 pull requests.  Note that the [code of conduct](CODE_OF_CONDUCT.md)
-applies to all interactions with the mplx project, including
+applies to all interactions with the matplotx project, including
 issues and pull requests.
 
 When submitting pull requests, please follow the style guidelines of

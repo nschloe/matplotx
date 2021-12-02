@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-import mplx
+import matplotx
 
 
 def test_plot():
@@ -19,11 +19,11 @@ def test_plot():
     # print("T", time.time() - t)
     # # plt.show()
     # t = time.time()
-    # mplx.contour(X, Y, vals, levels=[0.5], linestyles="-")
+    # matplotx.contour(X, Y, vals, levels=[0.5], linestyles="-")
     # print("t", time.time() - t)
 
-    mplx.contour(X, Y, vals, levels=[0.5], max_jump=5.0)
-    mplx.discontour(X, Y, vals, min_jump=5.0, linestyle=":", color="r")
+    matplotx.contour(X, Y, vals, levels=[0.5], max_jump=5.0)
+    matplotx.discontour(X, Y, vals, min_jump=5.0, linestyle=":", color="r")
     plt.gca().set_aspect("equal")
     plt.show()
     plt.close()
@@ -36,7 +36,7 @@ def test_paths():
     z = X + 1j * Y
     vals = np.angle(z).T
 
-    paths = mplx._contour._get_xy_paths(
+    paths = matplotx._contour._get_xy_paths(
         x, y, vals, level=0.5, max_jump=5.0, min_jump=None
     )
     assert len(paths) == 1
@@ -51,7 +51,7 @@ def test_closed_path():
     Z = np.exp(-(X ** 2) - Y ** 2)
 
     # plt.contour(X, Y, Z, levels=[0.75])
-    mplx.contour(X, Y, Z, levels=[0.75])
+    matplotx.contour(X, Y, Z, levels=[0.75])
     plt.gca().set_aspect("equal")
     plt.show()
     plt.close()
@@ -65,7 +65,7 @@ def test_separate_paths():
     Z = np.exp(-((X - 1) ** 2) - Y ** 2) + np.exp(-((X + 1) ** 2) - Y ** 2)
 
     # plt.contour(X, Y, Z, levels=[0.75])
-    mplx.contour(X, Y, Z, levels=[0.75])
+    matplotx.contour(X, Y, Z, levels=[0.75])
     plt.gca().set_aspect("equal")
     plt.show()
     plt.close()
@@ -79,7 +79,7 @@ def test_multiple_levels():
     Z = np.exp(-(X ** 2) - Y ** 2)
 
     # plt.contour(X, Y, Z, levels=[0.75])
-    mplx.contour(X, Y, Z, levels=[0.5, 0.75])
+    matplotx.contour(X, Y, Z, levels=[0.5, 0.75])
     plt.gca().set_aspect("equal")
     plt.show()
     plt.close()

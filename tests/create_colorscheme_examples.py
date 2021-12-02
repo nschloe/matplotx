@@ -131,33 +131,33 @@ def _normalize(string):
 
 
 if __name__ == "__main__":
-    import mplx
+    import matplotx
 
     schemes = {
-        "Aura (dark)": mplx.styles.aura["dark"],
-        "Aura (dark soft)": mplx.styles.aura["dark-soft"],
-        "ayu (dark)": mplx.styles.ayu["dark"],
-        "ayu (light)": mplx.styles.ayu["light"],
-        "ayu (mirage)": mplx.styles.ayu["mirage"],
-        "Challenger Deep": mplx.styles.challenger_deep,
-        "Pitaya Smoothie (dark)": mplx.styles.pitaya_smoothie["dark"],
-        "Pitaya Smoothie (light)": mplx.styles.pitaya_smoothie["light"],
-        "Pacoty": mplx.styles.pacoty,
-        "Dracula": mplx.styles.dracula,
-        "GitHub (dark)": mplx.styles.github["dark"],
-        "GitHub (dimmed)": mplx.styles.github["dimmed"],
-        "GitHub (light)": mplx.styles.github["light"],
-        "gruvbox (dark)": mplx.styles.gruvbox["dark"],
-        "gruvbox (light)": mplx.styles.gruvbox["light"],
-        "Nord": mplx.styles.nord,
-        "One Dark": mplx.styles.onedark,
-        "Solarized (dark)": mplx.styles.solarized["dark"],
-        "Solarized (light)": mplx.styles.solarized["light"],
-        "Tableau 10": mplx.styles.tab10,
-        "Tableau 20": mplx.styles.tab20,
-        "Tokyo Night (storm)": mplx.styles.tokyo_night["storm"],
-        "Tokyo Night (night)": mplx.styles.tokyo_night["night"],
-        "Tokyo Night (day)": mplx.styles.tokyo_night["day"],
+        "Aura (dark)": matplotx.styles.aura["dark"],
+        "Aura (dark soft)": matplotx.styles.aura["dark-soft"],
+        "ayu (dark)": matplotx.styles.ayu["dark"],
+        "ayu (light)": matplotx.styles.ayu["light"],
+        "ayu (mirage)": matplotx.styles.ayu["mirage"],
+        "Challenger Deep": matplotx.styles.challenger_deep,
+        "Pitaya Smoothie (dark)": matplotx.styles.pitaya_smoothie["dark"],
+        "Pitaya Smoothie (light)": matplotx.styles.pitaya_smoothie["light"],
+        "Pacoty": matplotx.styles.pacoty,
+        "Dracula": matplotx.styles.dracula,
+        "GitHub (dark)": matplotx.styles.github["dark"],
+        "GitHub (dimmed)": matplotx.styles.github["dimmed"],
+        "GitHub (light)": matplotx.styles.github["light"],
+        "gruvbox (dark)": matplotx.styles.gruvbox["dark"],
+        "gruvbox (light)": matplotx.styles.gruvbox["light"],
+        "Nord": matplotx.styles.nord,
+        "One Dark": matplotx.styles.onedark,
+        "Solarized (dark)": matplotx.styles.solarized["dark"],
+        "Solarized (light)": matplotx.styles.solarized["light"],
+        "Tableau 10": matplotx.styles.tab10,
+        "Tableau 20": matplotx.styles.tab20,
+        "Tokyo Night (storm)": matplotx.styles.tokyo_night["storm"],
+        "Tokyo Night (night)": matplotx.styles.tokyo_night["night"],
+        "Tokyo Night (day)": matplotx.styles.tokyo_night["day"],
     }
 
     for name, scheme in schemes.items():
