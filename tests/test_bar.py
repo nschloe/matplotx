@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 
 import mplx
 
+
 def test_bar():
     with plt.style.context(mplx.styles.dufte_bar):
         labels = ["label 1", "label 2"]
