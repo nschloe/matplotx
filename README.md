@@ -81,9 +81,13 @@ The three mplx ingredients are:
 - `mplx.line_labels`: Show line labels to the right, with the line color
 
 You can also combine dufte with any other style (see below) with
+
+<!--pytest-codeblocks:skip-->
+
 ```python
 plt.style.use(mplx.styles.dracula | mplx.styles.dufte)
 ```
+
 (This uses the Python 3.10 dict merge operator `|`. If you're using an older Python version, you have to use, e.g., `{**x, **y}`.)
 
 Further reading and other styles:
