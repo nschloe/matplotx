@@ -171,6 +171,7 @@ with plt.style.context(mplx.styles.dracula):
 |    <img src="https://nschloe.github.io/mplx/solarized-dark.svg" width="100%">     |
 |    <img src="https://nschloe.github.io/mplx/solarized-light.svg" width="100%">    |
 |      <img src="https://nschloe.github.io/mplx/tableau-10.svg" width="100%">       |
+|      <img src="https://nschloe.github.io/mplx/tableau-20.svg" width="100%">       |
 |    <img src="https://nschloe.github.io/mplx/tokyo-night-day.svg" width="100%">    |
 |   <img src="https://nschloe.github.io/mplx/tokyo-night-night.svg" width="100%">   |
 |   <img src="https://nschloe.github.io/mplx/tokyo-night-storm.svg" width="100%">   |
