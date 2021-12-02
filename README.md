@@ -13,6 +13,121 @@
 [![LGTM](https://img.shields.io/lgtm/grade/python/github/nschloe/mplx.svg?style=flat-square)](https://lgtm.com/projects/g/nschloe/mplx)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
+Install with
+
+```sh
+pip install mplx
+```
+
+and use in Python with
+
+```python
+import mplx
+```
+
+See below for what mplx can do.
+
+### Clean line plots
+
+<a href="tests/dufte_comparison.py">
+<table width="100%">
+  <tr>
+  <td width="50%"><img src="https://nschloe.github.io/mplx/ex1-mpl.svg"/></td>
+  <td width="50%"><img src="https://nschloe.github.io/mplx/ex1-dufte.svg"/></td>
+  </tr>
+  <tr>
+    <td>matplotlib</td>
+    <td>
+    <code>mplx.styles.dufte</code>,
+    <code>mplx.ylabel_top</code>,
+    <code>mplx.line_labels</code>
+    </td>
+  </tr>
+</table>
+</a>
+
+The right plot is created with
+
+```python
+import matplotlib.pyplot as plt
+import mplx
+import numpy as np
+
+# create data
+rng = np.random.default_rng(0)
+offsets = [1.0, 1.50, 1.60]
+labels = ["no balancing", "CRV-27", "CRV-27*"]
+x0 = np.linspace(0.0, 3.0, 100)
+y = [offset * x0 / (x0 + 1) + 0.1 * rng.random(len(x0)) for offset in offsets]
+
+# plot
+with plt.style.context(mplx.styles.dufte):
+    for yy, label in zip(y, labels):
+        plt.plot(x0, yy, label=label)
+    plt.xlabel("distance [m]")
+    mplx.ylabel_top("voltage [V]")  # move ylabel to the top, rotate
+    mplx.line_labels()  # line labels to the right
+    plt.show()
+```
+
+The three mplx ingredients are:
+
+- `mplx.styles.dufte`: A minimalistic style
+- `mplx.ylabel_top`: Rotate and move the the y-label
+- `mplx.line_labels`: Show line labels to the right, with the line color
+
+Further reading and other styles:
+
+- [Remove to improve: data-ink ratio](https://www.darkhorseanalytics.com/blog/data-looks-better-naked)
+
+  <img src="https://nschloe.github.io/mplx/data-ink.webp" width="50%"/>
+
+- [Cereblog, _Remove to improve: Line Graph Edition_](https://youtu.be/bDbJBWvonVI)
+- [Show the Data - Maximize the Data Ink Ratio](https://youtu.be/pCp0a5_YIWE)
+- [Randal S. Olson's blog entry](http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/)
+- [prettyplotlib](https://github.com/olgabot/prettyplotlib)
+- [Wikipedia: Chartjunk](https://en.wikipedia.org/wiki/Chartjunk)
+
+### Clean bar plots
+
+<a href="tests/dufte_comparison.py">
+<table width="100%">
+  <tr>
+  <td width="33%"><img src="https://nschloe.github.io/mplx/bars-mpl.svg"/></td>
+  <td width="33%"><img src="https://nschloe.github.io/mplx/bars-dufte1.svg"/></td>
+  <td width="33%"><img src="https://nschloe.github.io/mplx/bars-dufte2.svg"/></td>
+  </tr>
+  <tr>
+    <td>matplotlib</td>
+    <td>dufte</td>
+    <td>dufte with <code>mplx.show_bar_values()</code></td>
+  </tr>
+</table>
+</a>
+
+The right plot is created with
+
+```python
+import matplotlib.pyplot as plt
+import mplx
+
+labels = ["Australia", "Brazil", "China", "Germany", "Mexico", "United\nStates"]
+vals = [21.65, 24.5, 6.95, 8.40, 21.00, 8.55]
+xpos = range(len(vals))
+
+with plt.style.context(mplx.styles.dufte_bar):
+    plt.bar(xpos, vals)
+    plt.xticks(xpos, labels)
+    mplx.show_bar_values("{:.2f}")
+    plt.title("average temperature [°C]")
+    plt.show()
+```
+
+The two mplx ingredients are:
+
+- `mplx.styles.dufte_bar`: A minimalistic style for bar plots
+- `mplx.show_bar_values`: Show bar values directly at the bars
+
 ### Extra styles
 
 mplx contains numerous extra color schemes, e.g.,
@@ -26,8 +141,11 @@ mplx contains numerous extra color schemes, e.g.,
 import matplotlib.pyplot as plt
 import mplx
 
+# use everywhere:
+plt.style.use(mplx.styles.dracula)
+
+# use with context:
 with plt.style.context(mplx.styles.dracula):
-    # create figure
     pass
 ```
 
@@ -54,6 +172,15 @@ with plt.style.context(mplx.styles.dracula):
 |    <img src="https://nschloe.github.io/mplx/tokyo-night-day.svg" width="100%">    |
 |   <img src="https://nschloe.github.io/mplx/tokyo-night-night.svg" width="100%">   |
 |   <img src="https://nschloe.github.io/mplx/tokyo-night-storm.svg" width="100%">   |
+
+Other styles:
+
+- [John Garrett, _Science Plots_](https://github.com/garrettj403/SciencePlots)
+- [Dominik Haitz, _Cyberpunk style_](https://github.com/dhaitz/mplcyberpunk)
+- [Dominik Haitz, _Matplotlib stylesheets_](https://github.com/dhaitz/matplotlib-stylesheets)
+- [Carlos da Costa, _The Grand Budapest Hotel_](https://github.com/cako/mpl_grandbudapest)
+- [Danny Antaki, _vaporwave aesthetics_](https://github.com/dantaki/vapeplot)
+- [QuantumBlack Labs, _QuantumBlack_](https://github.com/quantumblacklabs/qbstyles)
 
 ### Contour plots for functions with discontinuities
 
