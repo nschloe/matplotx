@@ -41,6 +41,8 @@ pip install mplx
 The right plot is created with
 
 ```python
+import matplotlib.pyplot as plt
+import mplx
 import numpy as np
 
 # create data
@@ -52,8 +54,8 @@ y = [offset * x0 / (x0 + 1) + 0.1 * rng.random(len(x0)) for offset in offsets]
 
 # plot
 with plt.style.context(mplx.styles.dufte):
-for yy, label in zip(y, labels):
-    plt.plot(x0, yy, label=label)
+    for yy, label in zip(y, labels):
+        plt.plot(x0, yy, label=label)
 plt.xlabel("distance [m]")
 mplx.ylabel_top("voltage [V]")  # move ylabel to the top, rotate
 mplx.line_labels()  # line labels to the right
@@ -97,6 +99,9 @@ Further reading and other styles:
 The right plot is created with
 
 ```python
+import matplotlib.pyplot as plt
+import mplx
+
 labels = ["Australia", "Brazil", "China", "Germany", "Mexico", "United\nStates"]
 vals = [21.65, 24.5, 6.95, 8.40, 21.00, 8.55]
 xpos = range(len(vals))
