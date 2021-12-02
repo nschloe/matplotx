@@ -19,7 +19,7 @@ def line():
         plt.xlabel("distance [m]")
         plt.ylabel("voltage [V]")
         plt.legend()
-        plt.savefig("ex1-mpl.svg", transparent=True, bbox_inches="tight")
+        plt.savefig("ex1-mpl.svg", bbox_inches="tight")
         plt.close()
 
     # dufte
@@ -29,7 +29,17 @@ def line():
         plt.xlabel("distance [m]")
         mplx.ylabel_top("voltage [V]")
         mplx.line_labels()
-        plt.savefig("ex1-dufte.svg", transparent=True, bbox_inches="tight")
+        plt.savefig("ex1-dufte.svg", bbox_inches="tight")
+        plt.close()
+
+    # dufte
+    with plt.style.context(mplx.styles.dracula | mplx.styles.dufte):
+        for yy, label in zip(y, labels):
+            plt.plot(x0, yy, label=label)
+        plt.xlabel("distance [m]")
+        mplx.ylabel_top("voltage [V]")
+        mplx.line_labels()
+        plt.savefig("ex1-dufte-dracula.svg", bbox_inches="tight")
         plt.close()
 
 

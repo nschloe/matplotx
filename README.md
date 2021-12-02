@@ -27,13 +27,14 @@ import mplx
 
 See below for what mplx can do.
 
-### Clean line plots
+### Clean line plots (dufte)
 
 <a href="tests/dufte_comparison.py">
 <table width="100%">
   <tr>
-  <td width="50%"><img src="https://nschloe.github.io/mplx/ex1-mpl.svg"/></td>
-  <td width="50%"><img src="https://nschloe.github.io/mplx/ex1-dufte.svg"/></td>
+  <td width="33%"><img src="https://nschloe.github.io/mplx/ex1-mpl.svg"/></td>
+  <td width="33%"><img src="https://nschloe.github.io/mplx/ex1-dufte.svg"/></td>
+  <td width="33%"><img src="https://nschloe.github.io/mplx/ex1-dufte-dracula.svg"/></td>
   </tr>
   <tr>
     <td>matplotlib</td>
@@ -42,11 +43,14 @@ See below for what mplx can do.
     <code>mplx.ylabel_top</code>,
     <code>mplx.line_labels</code>
     </td>
+    <td>
+    <code>mplx.styles.dracula | mplx.styles.dufte</code>
+    </td>
   </tr>
 </table>
 </a>
 
-The right plot is created with
+The middle plot is created with
 
 ```python
 import matplotlib.pyplot as plt
@@ -75,6 +79,16 @@ The three mplx ingredients are:
 - `mplx.styles.dufte`: A minimalistic style
 - `mplx.ylabel_top`: Rotate and move the the y-label
 - `mplx.line_labels`: Show line labels to the right, with the line color
+
+You can also combine dufte with any other style (see below) with
+
+<!--pytest-codeblocks:skip-->
+
+```python
+plt.style.use(mplx.styles.dracula | mplx.styles.dufte)
+```
+
+(This uses the Python 3.10 dict merge operator `|`. If you're using an older Python version, you have to use, e.g., `{**x, **y}`.)
 
 Further reading and other styles:
 
