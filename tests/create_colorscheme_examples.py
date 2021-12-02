@@ -154,6 +154,7 @@ if __name__ == "__main__":
         "Solarized (dark)": mplx.styles.solarized["dark"],
         "Solarized (light)": mplx.styles.solarized["light"],
         "Tableau 10": mplx.styles.tab10,
+        "Tableau 20": mplx.styles.tab20,
         "Tokyo Night (storm)": mplx.styles.tokyo_night["storm"],
         "Tokyo Night (night)": mplx.styles.tokyo_night["night"],
         "Tokyo Night (day)": mplx.styles.tokyo_night["day"],

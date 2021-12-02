@@ -9,7 +9,7 @@ from ._gruvbox import gruvbox
 from ._nord import nord
 from ._onedark import onedark
 from ._solarized import solarized
-from ._tableau import tab10, tab20
+from ._tableau import tab10, tab20, tab20r
 from ._tokyo_night import tokyo_night
 
 __all__ = [
@@ -28,5 +28,6 @@ __all__ = [
     "solarized",
     "tab10",
     "tab20",
+    "tab20r",
     "tokyo_night",
 ]
