@@ -141,8 +141,11 @@ mplx contains numerous extra color schemes, e.g.,
 import matplotlib.pyplot as plt
 import mplx
 
+# use everywhere:
+plt.style.use(mplx.styles.dracula)
+
+# use with context:
 with plt.style.context(mplx.styles.dracula):
-    # create figure
     pass
 ```
 
