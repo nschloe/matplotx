@@ -8,7 +8,9 @@ from matplotlib.collections import LineCollection
 from numpy.typing import ArrayLike
 
 
-def _get_xy_from_meshgrid(X, Y, Z):
+def _get_xy_from_meshgrid(
+    X: ArrayLike, Y: ArrayLike, Z: ArrayLike
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     X = np.asarray(X)
     Y = np.asarray(Y)
     Z = np.asarray(Z)
@@ -29,6 +31,19 @@ def _get_xy_from_meshgrid(X, Y, Z):
     return x, y, Z
 
 
+def _filter_paths_by_length(
+    xy_paths: list[np.ndarray], min_length: float
+) -> list[np.ndarray]:
+    long_enough_paths = []
+    for xy_path in xy_paths:
+        diffs = xy_path[:, 1:] - xy_path[:, :-1]
+        dist = np.sqrt(np.einsum("ij,ij->j", diffs, diffs))
+        path_length = np.sum(dist)
+        if path_length >= min_length:
+            long_enough_paths.append(xy_path)
+    return long_enough_paths
+
+
 def contour(
     X: ArrayLike,
     Y: ArrayLike,
@@ -36,15 +51,19 @@ def contour(
     levels: list[float],
     min_jump: float | None = None,
     max_jump: float | None = None,
+    min_contour_length: float | None = None,
     colors: str | list[str | None] | None = None,
     alpha: float | None = None,
+    linestyles: str | tuple[str] = "solid",
 ):
     x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
 
     if isinstance(colors, str) or colors is None:
         colors = [colors] * len(levels)
-
     assert len(colors) == len(levels)
+
+    if len(levels) == 0:
+        return
 
     cmap = plt.get_cmap()
     norm = matplotlib.colors.Normalize(vmin=np.min(levels), vmax=np.max(levels))
@@ -54,13 +73,16 @@ def contour(
     for level, color in zip(levels, colors):
         xy_paths = _get_xy_paths(x, y, Z, level, min_jump, max_jump)
 
+        if min_contour_length is not None:
+            xy_paths = _filter_paths_by_length(xy_paths, min_contour_length)
+
         if color is None:
             color = cmap(norm(level))
 
         lines += [p.T for p in xy_paths]
         cols += [color] * len(xy_paths)
 
-    lc = LineCollection(lines, colors=cols, alpha=alpha)
+    lc = LineCollection(lines, colors=cols, alpha=alpha, linestyle=linestyles)
     plt.gca().add_collection(lc)
 
     plt.xlim(x[0], x[-1])
@@ -74,13 +96,19 @@ def discontour(
     Y: ArrayLike,
     Z: ArrayLike,
     min_jump: float | None = None,
+    min_contour_length: float | None = None,
     color: str | None = None,
     linestyle: str | None = None,
     alpha: float | None = None,
 ):
+    """Plot only the discontinuities (threshold minjump)."""
     x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
 
     xy_paths = _get_xy_paths(x, y, Z, min_jump=min_jump)
+
+    if min_contour_length is not None:
+        xy_paths = _filter_paths_by_length(xy_paths, min_contour_length)
+
     lines = [p.T for p in xy_paths]
     cols = [color] * len(xy_paths)
     linestyles = [linestyle] * len(xy_paths)
@@ -94,7 +122,14 @@ def discontour(
     return plt
 
 
-def _get_xy_paths(x, y, Z, level=None, min_jump=None, max_jump=None):
+def _get_xy_paths(
+    x: np.ndarray,
+    y: np.ndarray,
+    Z: np.ndarray,
+    level: float | None = None,
+    min_jump: float | None = None,
+    max_jump: float | None = None,
+) -> list[np.ndarray]:
     # horizontal and vertical edges
     # horiz.shape = (nx - 1, ny)
     # verti.shape = (nx, ny - 1)
