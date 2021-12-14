@@ -33,7 +33,7 @@ def line():
         plt.close()
 
     # dufte
-    with plt.style.context(matplotx.styles.dracula | matplotx.styles.dufte):
+    with plt.style.context(matplotx.styles.duftify(matplotx.styles.dracula)):
         for yy, label in zip(y, labels):
             plt.plot(x0, yy, label=label)
         plt.xlabel("distance [m]")

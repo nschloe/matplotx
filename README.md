@@ -17,7 +17,7 @@
 Install with
 
 ```sh
-pip install matplotx
+pip install matplotx[all]
 ```
 
 and use in Python with

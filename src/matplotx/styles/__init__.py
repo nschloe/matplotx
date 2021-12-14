@@ -3,7 +3,7 @@ from ._ayu import ayu
 from ._challenger_deep import challenger_deep
 from ._dhaitz import pacoty, pitaya_smoothie
 from ._dracula import dracula
-from ._dufte import dufte, dufte_bar
+from ._dufte import dufte, dufte_bar, duftify
 from ._github import github
 from ._gruvbox import gruvbox
 from ._nord import nord
@@ -19,6 +19,7 @@ __all__ = [
     "dracula",
     "dufte",
     "dufte_bar",
+    "duftify",
     "github",
     "gruvbox",
     "nord",
