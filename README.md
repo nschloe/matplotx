@@ -17,7 +17,7 @@
 Install with
 
 ```sh
-pip install matplotx
+pip install matplotx[all]
 ```
 
 and use in Python with
@@ -45,7 +45,7 @@ See below for what matplotx can do.
     <code>matplotx.line_labels</code>
     </td>
     <td>
-    <code>matplotx.styles.dracula | matplotx.styles.dufte</code>
+    <code>matplotx.styles.duftify(matplotx.styles.dracula)</code>
     </td>
   </tr>
 </table>
@@ -81,15 +81,13 @@ The three matplotx ingredients are:
 - `matplotx.ylabel_top`: Rotate and move the the y-label
 - `matplotx.line_labels`: Show line labels to the right, with the line color
 
-You can also combine dufte with any other style (see below) with
+You can also "duftify" any other style (see below) with
 
 <!--pytest-codeblocks:skip-->
 
 ```python
-plt.style.use(matplotx.styles.dracula | matplotx.styles.dufte)
+matplotx.styles.duftify(matplotx.styles.dracula)
 ```
-
-(This uses the Python 3.10 dict merge operator `|`. If you're using an older Python version, you have to use, e.g., `{**x, **y}`.)
 
 Further reading and other styles:
 

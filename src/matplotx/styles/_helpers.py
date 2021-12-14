@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 import matplotlib as mpl
 
 
-def generate_style(foreground, background, cycle):
+def generate_style(foreground: str, background: str, cycle: list[str]) -> dict:
     return {
         "lines.color": foreground,
         "patch.edgecolor": foreground,

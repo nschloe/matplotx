@@ -74,7 +74,9 @@ def test_logy():
     matplotx.ylabel_top("ylabel")
 
 
+def test_duftify():
+    matplotx.styles.duftify(matplotx.styles.dracula)
+
+
 if __name__ == "__main__":
-    test_logy()
-    plt.show()
-    plt.close()
+    test_duftify()
