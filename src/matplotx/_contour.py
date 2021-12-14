@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import matplotlib.colors
 import matplotlib.pyplot as plt
-import networkx
 import numpy as np
 from matplotlib.collections import LineCollection
 from numpy.typing import ArrayLike
@@ -130,6 +129,8 @@ def _get_xy_paths(
     min_jump: float | None = None,
     max_jump: float | None = None,
 ) -> list[np.ndarray]:
+    import networkx
+
     # horizontal and vertical edges
     # horiz.shape = (nx - 1, ny)
     # verti.shape = (nx, ny - 1)
