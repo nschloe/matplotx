@@ -4,6 +4,7 @@
 </p>
 
 [![PyPi Version](https://img.shields.io/pypi/v/matplotx.svg?style=flat-square)](https://pypi.org/project/matplotx/)
+[![Anaconda Cloud](https://anaconda.org/conda-forge/matplotx/badges/version.svg?=style=flat-square)](https://anaconda.org/conda-forge/matplotx/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/matplotx.svg?style=flat-square)](https://pypi.org/project/matplotx/)
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/matplotx.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/nschloe/matplotx)
 [![Downloads](https://pepy.tech/badge/matplotx/month)](https://pepy.tech/project/matplotx)
