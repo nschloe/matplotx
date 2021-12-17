@@ -3,7 +3,12 @@ from __future__ import annotations
 import matplotlib as mpl
 
 
-def generate_style(foreground: str, background: str, cycle: list[str]) -> dict:
+def generate_style(
+    foreground: str,
+    background: str,
+    comment: str,
+    cycle: list[str],
+) -> dict:
     return {
         "lines.color": foreground,
         "patch.edgecolor": foreground,
@@ -14,7 +19,7 @@ def generate_style(foreground: str, background: str, cycle: list[str]) -> dict:
         "xtick.color": foreground,
         "ytick.color": foreground,
         "legend.framealpha": 0,
-        "grid.color": foreground,
+        "grid.color": comment,
         "figure.facecolor": background,
         "figure.edgecolor": background,
         "savefig.facecolor": background,

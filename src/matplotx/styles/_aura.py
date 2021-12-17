@@ -8,6 +8,7 @@ aura = {
     "dark": generate_style(
         background="#15141b",
         foreground="#edecee",
+        comment="#6d6d6d",
         cycle=[
             "#82e2ff",  # blue
             "#ffca85",  # orange
@@ -21,6 +22,7 @@ aura = {
     "dark-soft": generate_style(
         background="#15141b",
         foreground="#bdbdbd",
+        comment="#6d6d6d",
         cycle=[
             "#6cb2c7",  # blue
             "#c7a06f",  # orange

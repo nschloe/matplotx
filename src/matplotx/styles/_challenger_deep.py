@@ -6,6 +6,7 @@ from ._helpers import generate_style
 challenger_deep = generate_style(
     background="#1e1c31",  # asphalt
     foreground="#cbe3e7",
+    comment="#565575",
     cycle=[
         "#91ddff",  # blue
         "#ffe9aa",  # yellow

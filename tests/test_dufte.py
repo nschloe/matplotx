@@ -75,7 +75,22 @@ def test_logy():
 
 
 def test_duftify():
-    matplotx.styles.duftify(matplotx.styles.dracula)
+    offsets = [1.0, 1.50, 1.60]
+    offsets = [1.0, 1.50, 1.51]
+
+    x0 = np.linspace(0.0, 3.0, 100)
+    labels = ["no balancing", "CRV-27", "CRV-27*"]
+
+    with plt.style.context(matplotx.styles.duftify(matplotx.styles.dracula)):
+        for label, offset in zip(labels, offsets):
+            y0 = offset * x0 / (x0 + 1)
+            plt.plot(x0, y0, label=label)
+
+        plt.xlabel("distance [m]")
+        matplotx.ylabel_top("voltage [V]")
+        # plt.title("title")
+        matplotx.line_labels()
+        plt.show()
 
 
 if __name__ == "__main__":

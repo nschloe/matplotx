@@ -9,6 +9,7 @@ tokyo_night = {
     "storm": generate_style(
         background="#24283b",
         foreground="#c0caf5",
+        comment="#565f89",
         cycle=[
             "#7aa2f7",  # blue
             "#ff9e64",  # orange
@@ -24,6 +25,7 @@ tokyo_night = {
     "night": generate_style(
         background="#1a1b26",
         foreground="#c0caf5",
+        comment="#565f89",
         cycle=[
             "#7aa2f7",  # blue
             "#ff9e64",  # orange
@@ -39,6 +41,7 @@ tokyo_night = {
     "day": generate_style(
         background="#e1e2e7",
         foreground="#3760bf",
+        comment="#848cb5",
         cycle=[
             "#2e7de9",  # blue
             "#b15c00",  # orange

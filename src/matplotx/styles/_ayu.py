@@ -8,6 +8,7 @@ ayu = {
     "dark": generate_style(
         background="#0F1419",
         foreground="#E6E1CF",
+        comment="#5C6773",
         cycle=[
             "#36A3D9",  # blue
             "#FFB454",  # orange
@@ -20,6 +21,7 @@ ayu = {
     "light": generate_style(
         background="#FAFAFA",
         foreground="#5C6773",
+        comment="#ABB0B6",
         cycle=[
             "#36A3D9",  # blue
             "#F29718",  # orange
@@ -33,6 +35,7 @@ ayu = {
     "mirage": generate_style(
         background="#212733",
         foreground="#D9D7CE",
+        comment="#5C6773",
         cycle=[
             "#80D4FF",  # blue
             "#FFD57F",  # orange

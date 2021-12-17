@@ -19,11 +19,13 @@ solarized = {
     "dark": generate_style(
         foreground="#839496",  # base0
         background="#002b36",  # base03
+        comment="#586e75",  # base01
         cycle=cycle,
     ),
     "light": generate_style(
         foreground="#657b83",  # base00
         background="#fdf6e3",  # base3
+        comment="#93a1a1",  # base1
         cycle=cycle,
     ),
 }
