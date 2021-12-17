@@ -13,23 +13,8 @@ def _merge(dict1, dict2):
 def duftify(style: dict, bar: bool = False) -> dict:
     from colorio.cs import OKLAB, SRGB1, ColorCoordinates, SRGBhex
 
-    foreground = style["text.color"]
-    background = style["figure.facecolor"]
-
-    # If it's a hex number, prepend "#"
-    try:
-        int(foreground, 16)
-    except ValueError:
-        pass
-    else:
-        foreground = "#" + foreground
-
-    try:
-        int(background, 16)
-    except ValueError:
-        pass
-    else:
-        background = "#" + background
+    foreground = style["text.color"] if "text.color" in style else "black"
+    background = style["figure.facecolor"] if "figure.facecolor" in style else "white"
 
     # perform interpolation in OKLAB
     foreground = ColorCoordinates(to_rgb(foreground), SRGB1())
@@ -46,6 +31,8 @@ def duftify(style: dict, bar: bool = False) -> dict:
     # make the xticks slightly wider to make them easier to see
     _xtick_width = 0.4
 
+    # See <https://matplotlib.org/stable/tutorials/introductory/customizing.html> for all
+    # possible rcParams.
     dufte_style = {
         "font.size": 14,
         "text.color": pale,
@@ -93,40 +80,8 @@ def duftify(style: dict, bar: bool = False) -> dict:
         dufte_style["axes.titlelocation"] = "left"
         dufte_style["axes.titlesize"] = 18
 
-    # See <https://matplotlib.org/stable/tutorials/introductory/customizing.html> for all
-    # possible rcParams.
-    out = _merge(style, dufte_style)
-
-    # mpl.rcParamsDefault contains many keys that give a UserWarning,
-    # ```
-    # UserWarning: Style includes a parameter, 'backend', that is not related
-    # to style.  Ignoring this parameter.
-    # ```
-    # Remove those.
-    rm_keys = [
-        "backend_fallback",
-        "date.epoch",
-        "docstring.hardcopy",
-        "figure.max_open_warning",
-        "figure.raise_window",
-        "backend",
-        "interactive",
-        "savefig.directory",
-        "timezone",
-        "tk.window_focus",
-        "toolbar",
-        "webagg.address",
-        "webagg.open_in_browser",
-        "webagg.port",
-        "webagg.port_retries",
-    ]
-
-    for key in rm_keys:
-        if key in out:
-            out.pop(key)
-
-    return out
+    return _merge(style, dufte_style)
 
 
-dufte = duftify(mpl.rcParamsDefault.copy())
-dufte_bar = duftify(mpl.rcParamsDefault.copy(), bar=True)
+dufte = duftify({})
+dufte_bar = duftify({}, bar=True)
