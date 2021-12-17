@@ -6,7 +6,9 @@ from ._helpers import generate_style
 nord = generate_style(
     background="#2E3440",  # nord0
     foreground="#D8DEE9",  # nord4
-    comment="#4C566A",  # nord3
+    # comment="#4C566A",  # nord3
+    # comment="#81A1C1",  # nord9
+    comment="#5E81AC",  # nord10
     cycle=[
         "#88C0D0",  # nord8, blue
         "#D08770",  # nord12, orange

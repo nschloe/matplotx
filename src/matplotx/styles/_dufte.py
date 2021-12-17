@@ -10,7 +10,12 @@ def _merge(dict1, dict2):
 
 
 def duftify(style: dict, bar: bool = False) -> dict:
-    grid_color = style["grid.color"]
+    try:
+        grid_color = style["grid.color"]
+    except KeyError:
+        # default grid color,
+        # <https://matplotlib.org/stable/tutorials/introductory/customizing.html>
+        grid_color = "#b0b0b0"
 
     _stroke_width = 0.3
     # make the xticks slightly wider to make them easier to see

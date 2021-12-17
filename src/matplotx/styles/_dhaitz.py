@@ -62,6 +62,8 @@ pitaya_smoothie = {
             "ytick.color": "0.9",
             "axes.facecolor": "#212946",
             "axes.edgecolor": "white",
+            # grid hardly visible,
+            # <https://github.com/dhaitz/matplotlib-stylesheets/issues/2>
             "grid.color": "#2A3459",
             "axes.prop_cycle": mpl.cycler(
                 color=[

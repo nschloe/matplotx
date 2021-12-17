@@ -81,16 +81,45 @@ def test_duftify():
     x0 = np.linspace(0.0, 3.0, 100)
     labels = ["no balancing", "CRV-27", "CRV-27*"]
 
-    with plt.style.context(matplotx.styles.duftify(matplotx.styles.dracula)):
-        for label, offset in zip(labels, offsets):
-            y0 = offset * x0 / (x0 + 1)
-            plt.plot(x0, y0, label=label)
+    schemes = {
+        "Aura (dark)": matplotx.styles.aura["dark"],
+        "Aura (dark soft)": matplotx.styles.aura["dark-soft"],
+        "ayu (dark)": matplotx.styles.ayu["dark"],
+        "ayu (light)": matplotx.styles.ayu["light"],
+        "ayu (mirage)": matplotx.styles.ayu["mirage"],
+        "Challenger Deep": matplotx.styles.challenger_deep,
+        "Pitaya Smoothie (dark)": matplotx.styles.pitaya_smoothie["dark"],
+        "Pitaya Smoothie (light)": matplotx.styles.pitaya_smoothie["light"],
+        "Pacoty": matplotx.styles.pacoty,
+        "Dracula": matplotx.styles.dracula,
+        "GitHub (dark)": matplotx.styles.github["dark"],
+        "GitHub (dimmed)": matplotx.styles.github["dimmed"],
+        "GitHub (light)": matplotx.styles.github["light"],
+        "gruvbox (dark)": matplotx.styles.gruvbox["dark"],
+        "gruvbox (light)": matplotx.styles.gruvbox["light"],
+        "Nord": matplotx.styles.nord,
+        "One Dark": matplotx.styles.onedark,
+        "Solarized (dark)": matplotx.styles.solarized["dark"],
+        "Solarized (light)": matplotx.styles.solarized["light"],
+        "Tableau 10": matplotx.styles.tab10,
+        "Tableau 20": matplotx.styles.tab20,
+        "Tokyo Night (storm)": matplotx.styles.tokyo_night["storm"],
+        "Tokyo Night (night)": matplotx.styles.tokyo_night["night"],
+        "Tokyo Night (day)": matplotx.styles.tokyo_night["day"],
+    }
 
-        plt.xlabel("distance [m]")
-        matplotx.ylabel_top("voltage [V]")
-        # plt.title("title")
-        matplotx.line_labels()
-        plt.show()
+    for name, scheme in schemes.items():
+        with plt.style.context(matplotx.styles.duftify(scheme)):
+            for label, offset in zip(labels, offsets):
+                y0 = offset * x0 / (x0 + 1)
+                plt.plot(x0, y0, label=label)
+
+            plt.xlabel("distance [m]")
+            matplotx.ylabel_top("voltage [V]")
+            plt.title(name)
+            matplotx.line_labels()
+            plt.show()
+            plt.close()
 
 
 if __name__ == "__main__":
