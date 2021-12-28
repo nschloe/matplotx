@@ -242,6 +242,45 @@ Relevant discussions:
 
 - [matplotlib/issues/21348](https://github.com/matplotlib/matplotlib/issues/21348)
 
+### spy plots (betterspy)
+
+Show sparsity patterns of sparse matrices or write them to image files.
+
+Example:
+
+```python
+import matplotx
+from scipy import sparse
+
+A = sparse.rand(20, 20, density=0.1)
+
+# show the matrix
+plt = matplotx.spy(
+    A,
+    # border_width=2,
+    # border_color="red",
+    # colormap="viridis"
+)
+plt.show()
+
+# or save it as png
+matplotx.spy(A, filename="out.png")
+```
+
+| <img src="https://nschloe.github.io/matplotx/spy-plain.png"> | <img src="https://nschloe.github.io/matplotx/spy-viridis.png"> |
+| :----------------------------------------------------------: | :------------------------------------------------------------: |
+|                         no colormap                          |                            viridis                             |
+
+There is a command-line tool that can be used to show
+[matrix-market](https://math.nist.gov/MatrixMarket/) or
+[Harwell-Boeing](https://en.wikipedia.org/wiki/Harwell-Boeing_file_format) files:
+
+```
+matplotx spy msc00726.mtx [out.png]
+```
+
+See `matplotx spy -h` for all options.
+
 ### License
 
 This software is published under the [MIT license](LICENSE).
