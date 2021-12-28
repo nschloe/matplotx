@@ -14,6 +14,11 @@
 [![LGTM](https://img.shields.io/lgtm/grade/python/github/nschloe/matplotx.svg?style=flat-square)](https://lgtm.com/projects/g/nschloe/matplotx)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
+This package includes some useful or beautiful extensions to
+[Matplotlib](https://matplotlib.org/). Most of those features could be in
+Matplotlib itself, but I haven't had time to PR yet. If you're eager, let me
+know and I'll support the effort.
+
 Install with
 
 ```sh
@@ -166,11 +171,11 @@ with plt.style.context(matplotx.styles.dracula):
 See [here](https://github.com/nschloe/matplotx/wiki/Extra-styles-gallery) for a
 full list of extra styles
 
-|    <img src="https://nschloe.github.io/matplotx/aura-dark-soft.svg" width="100%">     |
-| :-----------------------------------------------------------------------------------: |
-|        <img src="https://nschloe.github.io/matplotx/dracula.svg" width="100%">        |
-|     <img src="https://nschloe.github.io/matplotx/gruvbox-dark.svg" width="100%">      |
-| <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-dark.svg" width="100%">  |
+|    <img src="https://nschloe.github.io/matplotx/aura-dark-soft.svg" width="100%">    |
+| :----------------------------------------------------------------------------------: |
+|       <img src="https://nschloe.github.io/matplotx/dracula.svg" width="100%">        |
+|     <img src="https://nschloe.github.io/matplotx/gruvbox-dark.svg" width="100%">     |
+| <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-dark.svg" width="100%"> |
 
 Other styles:
 
