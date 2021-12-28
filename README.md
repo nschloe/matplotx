@@ -163,31 +163,14 @@ with plt.style.context(matplotx.styles.dracula):
     pass
 ```
 
+See [here](https://github.com/nschloe/matplotx/wiki/Extra-styles-gallery) for a
+full list of extra styles
+
 |    <img src="https://nschloe.github.io/matplotx/aura-dark-soft.svg" width="100%">     |
 | :-----------------------------------------------------------------------------------: |
-|       <img src="https://nschloe.github.io/matplotx/aura-dark.svg" width="100%">       |
-|       <img src="https://nschloe.github.io/matplotx/ayu-dark.svg" width="100%">        |
-|       <img src="https://nschloe.github.io/matplotx/ayu-light.svg" width="100%">       |
-|      <img src="https://nschloe.github.io/matplotx/ayu-mirage.svg" width="100%">       |
-|    <img src="https://nschloe.github.io/matplotx/challenger-deep.svg" width="100%">    |
 |        <img src="https://nschloe.github.io/matplotx/dracula.svg" width="100%">        |
-|      <img src="https://nschloe.github.io/matplotx/github-dark.svg" width="100%">      |
-|     <img src="https://nschloe.github.io/matplotx/github-dimmed.svg" width="100%">     |
-|     <img src="https://nschloe.github.io/matplotx/github-light.svg" width="100%">      |
 |     <img src="https://nschloe.github.io/matplotx/gruvbox-dark.svg" width="100%">      |
-|     <img src="https://nschloe.github.io/matplotx/gruvbox-light.svg" width="100%">     |
-|         <img src="https://nschloe.github.io/matplotx/nord.svg" width="100%">          |
-|       <img src="https://nschloe.github.io/matplotx/one-dark.svg" width="100%">        |
-|        <img src="https://nschloe.github.io/matplotx/pacoty.svg" width="100%">         |
 | <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-dark.svg" width="100%">  |
-| <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-light.svg" width="100%"> |
-|    <img src="https://nschloe.github.io/matplotx/solarized-dark.svg" width="100%">     |
-|    <img src="https://nschloe.github.io/matplotx/solarized-light.svg" width="100%">    |
-|      <img src="https://nschloe.github.io/matplotx/tableau-10.svg" width="100%">       |
-|      <img src="https://nschloe.github.io/matplotx/tableau-20.svg" width="100%">       |
-|    <img src="https://nschloe.github.io/matplotx/tokyo-night-day.svg" width="100%">    |
-|   <img src="https://nschloe.github.io/matplotx/tokyo-night-night.svg" width="100%">   |
-|   <img src="https://nschloe.github.io/matplotx/tokyo-night-storm.svg" width="100%">   |
 
 Other styles:
 
