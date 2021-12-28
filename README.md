@@ -14,6 +14,11 @@
 [![LGTM](https://img.shields.io/lgtm/grade/python/github/nschloe/matplotx.svg?style=flat-square)](https://lgtm.com/projects/g/nschloe/matplotx)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
+This package includes some useful or beautiful extensions to
+[Matplotlib](https://matplotlib.org/). Most of those features could be in
+Matplotlib itself, but I haven't had time to PR yet. If you're eager, let me
+know and I'll support the effort.
+
 Install with
 
 ```sh
@@ -163,31 +168,14 @@ with plt.style.context(matplotx.styles.dracula):
     pass
 ```
 
-|    <img src="https://nschloe.github.io/matplotx/aura-dark-soft.svg" width="100%">     |
-| :-----------------------------------------------------------------------------------: |
-|       <img src="https://nschloe.github.io/matplotx/aura-dark.svg" width="100%">       |
-|       <img src="https://nschloe.github.io/matplotx/ayu-dark.svg" width="100%">        |
-|       <img src="https://nschloe.github.io/matplotx/ayu-light.svg" width="100%">       |
-|      <img src="https://nschloe.github.io/matplotx/ayu-mirage.svg" width="100%">       |
-|    <img src="https://nschloe.github.io/matplotx/challenger-deep.svg" width="100%">    |
-|        <img src="https://nschloe.github.io/matplotx/dracula.svg" width="100%">        |
-|      <img src="https://nschloe.github.io/matplotx/github-dark.svg" width="100%">      |
-|     <img src="https://nschloe.github.io/matplotx/github-dimmed.svg" width="100%">     |
-|     <img src="https://nschloe.github.io/matplotx/github-light.svg" width="100%">      |
-|     <img src="https://nschloe.github.io/matplotx/gruvbox-dark.svg" width="100%">      |
-|     <img src="https://nschloe.github.io/matplotx/gruvbox-light.svg" width="100%">     |
-|         <img src="https://nschloe.github.io/matplotx/nord.svg" width="100%">          |
-|       <img src="https://nschloe.github.io/matplotx/one-dark.svg" width="100%">        |
-|        <img src="https://nschloe.github.io/matplotx/pacoty.svg" width="100%">         |
-| <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-dark.svg" width="100%">  |
-| <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-light.svg" width="100%"> |
-|    <img src="https://nschloe.github.io/matplotx/solarized-dark.svg" width="100%">     |
-|    <img src="https://nschloe.github.io/matplotx/solarized-light.svg" width="100%">    |
-|      <img src="https://nschloe.github.io/matplotx/tableau-10.svg" width="100%">       |
-|      <img src="https://nschloe.github.io/matplotx/tableau-20.svg" width="100%">       |
-|    <img src="https://nschloe.github.io/matplotx/tokyo-night-day.svg" width="100%">    |
-|   <img src="https://nschloe.github.io/matplotx/tokyo-night-night.svg" width="100%">   |
-|   <img src="https://nschloe.github.io/matplotx/tokyo-night-storm.svg" width="100%">   |
+See [here](https://github.com/nschloe/matplotx/wiki/Extra-styles-gallery) for a
+full list of extra styles
+
+|    <img src="https://nschloe.github.io/matplotx/aura-dark-soft.svg" width="100%">    |
+| :----------------------------------------------------------------------------------: |
+|       <img src="https://nschloe.github.io/matplotx/dracula.svg" width="100%">        |
+|     <img src="https://nschloe.github.io/matplotx/gruvbox-dark.svg" width="100%">     |
+| <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-dark.svg" width="100%"> |
 
 Other styles:
 
@@ -241,6 +229,45 @@ plt.show()
 Relevant discussions:
 
 - [matplotlib/issues/21348](https://github.com/matplotlib/matplotlib/issues/21348)
+
+### spy plots (betterspy)
+
+Show sparsity patterns of sparse matrices or write them to image files.
+
+Example:
+
+```python
+import matplotx
+from scipy import sparse
+
+A = sparse.rand(20, 20, density=0.1)
+
+# show the matrix
+plt = matplotx.spy(
+    A,
+    # border_width=2,
+    # border_color="red",
+    # colormap="viridis"
+)
+plt.show()
+
+# or save it as png
+matplotx.spy(A, filename="out.png")
+```
+
+| <img src="https://nschloe.github.io/matplotx/spy-plain.png"> | <img src="https://nschloe.github.io/matplotx/spy-viridis.png"> |
+| :----------------------------------------------------------: | :------------------------------------------------------------: |
+|                         no colormap                          |                            viridis                             |
+
+There is a command-line tool that can be used to show
+[matrix-market](https://math.nist.gov/MatrixMarket/) or
+[Harwell-Boeing](https://en.wikipedia.org/wiki/Harwell-Boeing_file_format) files:
+
+```
+matplotx spy msc00726.mtx [out.png]
+```
+
+See `matplotx spy -h` for all options.
 
 ### License
 

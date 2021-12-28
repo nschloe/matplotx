@@ -9,17 +9,19 @@ on:
       - main
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-      - name: Run pre-commit
-        uses: pre-commit/action@v2.0.3
+  # temporarily disabled, Dec 28, 2021 TODO enable
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out repo
+  #       uses: actions/checkout@v2
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v2
+  #     - name: Run pre-commit
+  #       uses: pre-commit/action@v2.0.3
 
   build:
+    # needs: [lint]
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -28,7 +30,8 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: nschloe/action-cached-lfs-checkout@v1
       - name: Test with tox
         run: |
           pip install tox
