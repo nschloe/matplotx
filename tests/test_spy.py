@@ -46,7 +46,7 @@ def test_readme_images():
     def laplace(u, v, _):
         return dot(grad(u), grad(v))
 
-    points, cells = meshzoo.rectangle_tri((-1.0, -1.0), (1.0, 1.0), 20)
+    points, cells = meshzoo.rectangle_tri((-1.0, 1.0, 20), (-1.0, 1.0, 20))
     mesh = MeshTri(points.T, cells.T)
 
     basis = InteriorBasis(mesh, ElementTriP2())
@@ -65,8 +65,8 @@ def test_readme_images():
 def test_cli():
     this_dir = Path(__file__).resolve().parent
     mmfile = this_dir / "data" / "gre_343_343_crg.mm"
-    matplotx.cli.main([mmfile.as_posix()])
-    matplotx.cli.main([mmfile.as_posix(), "out.png"])
+    matplotx._cli.main(["spy", mmfile.as_posix()])
+    matplotx._cli.main(["spy", mmfile.as_posix(), "out.png"])
 
 
 if __name__ == "__main__":
