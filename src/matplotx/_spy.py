@@ -29,9 +29,7 @@ def _plot(A, border_width: int = 0, border_color="0.5", colormap=None):
 
 
 def _write_png(filename, A, border_width: int = 0, border_color="0.5", colormap=None):
-    # Perhaps pypng will have iterator support one day, cf.
-    # <https://github.com/drj11/pypng/issues/117>. Until then, use purepng.
-    import png  # purepng
+    import png  # pypng
 
     iterator = RowIterator(A, border_width, border_color, colormap)
 
