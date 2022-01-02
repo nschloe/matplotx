@@ -9,19 +9,18 @@ on:
       - main
 
 jobs:
-  # temporarily disabled, Dec 28, 2021 TODO enable
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Check out repo
-  #       uses: actions/checkout@v2
-  #     - name: Set up Python
-  #       uses: actions/setup-python@v2
-  #     - name: Run pre-commit
-  #       uses: pre-commit/action@v2.0.3
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+      - name: Run pre-commit
+        uses: pre-commit/action@v2.0.3
 
   build:
-    # needs: [lint]
+    needs: [lint]
     runs-on: ubuntu-latest
     strategy:
       matrix:
