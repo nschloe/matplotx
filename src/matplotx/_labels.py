@@ -37,7 +37,9 @@ def _move_min_distance(targets: ArrayLike, min_distance: float) -> np.ndarray:
     return sol[idx2]
 
 
-def line_labels(ax=None, min_label_distance: float | str = "auto", alpha: float = 1.0):
+def line_labels(
+    ax=None, min_label_distance: float | str = "auto", alpha: float = 1.0, **text_kwargs
+):
     ax = ax or plt.gca()
 
     logy = ax.get_yscale() == "log"
@@ -111,7 +113,9 @@ def line_labels(ax=None, min_label_distance: float | str = "auto", alpha: float 
     axis_to_data = ax.transAxes + ax.transData.inverted()
     xpos = axis_to_data.transform([1.03, 1.0])[0]
     for label, ypos, color in zip(labels, targets, colors):
-        plt.text(xpos, ypos, label, verticalalignment="center", color=color)
+        plt.text(
+            xpos, ypos, label, verticalalignment="center", color=color, **text_kwargs
+        )
 
 
 def ylabel_top(string: str) -> None:
