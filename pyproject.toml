@@ -45,5 +45,5 @@ Code = "https://github.com/nschloe/matplotx"
 Issues = "https://github.com/nschloe/matplotx/issues"
 Funding = "https://github.com/sponsors/nschloe"
 
-[project.entry-points]
-console_scripts = "matplotx:cli"
+[project.scripts]
+matplotx = "matplotx:cli"
