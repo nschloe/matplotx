@@ -1,6 +1,49 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
 
 [tool.isort]
 profile = "black"
+
+[project]
+name = "matplotx"
+authors = [{name = "Nico Schlömer", email = "nico.schloemer@gmail.com"}]
+description = "Useful styles and extensions for Matplotlib"
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Framework :: Matplotlib",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Utilities",
+]
+dynamic = ["version"]
+requires-python = ">=3.7"
+dependencies = [
+  "matplotlib",
+  "numpy >= 1.20.0",
+]
+
+[project.optional-dependencies]
+all = [
+    "networkx",
+    "pypng",
+    "scipy",
+]
+contour =["networkx"]
+spy = ["pypng", "scipy"]
+
+[project.urls]
+Code = "https://github.com/nschloe/matplotx"
+Issues = "https://github.com/nschloe/matplotx/issues"
+Funding = "https://github.com/sponsors/nschloe"
+
+[project.scripts]
+matplotx = "matplotx:cli"

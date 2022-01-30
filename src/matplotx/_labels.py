@@ -100,7 +100,7 @@ def line_labels(
 
     targets = _move_min_distance(targets, min_label_distance)
     if logy:
-        targets = [10 ** t for t in targets]
+        targets = [10**t for t in targets]
 
     labels = [line.get_label() for line in lines]
     colors = [line.get_color() for line in lines]

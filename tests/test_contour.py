@@ -48,7 +48,7 @@ def test_closed_path():
     x = np.arange(-2.0, 2.0, delta)
     y = np.arange(-2.0, 2.0, delta)
     X, Y = np.meshgrid(x, y)
-    Z = np.exp(-(X ** 2) - Y ** 2)
+    Z = np.exp(-(X**2) - Y**2)
 
     # plt.contour(X, Y, Z, levels=[0.75])
     matplotx.contour(X, Y, Z, levels=[0.75])
@@ -62,7 +62,7 @@ def test_separate_paths():
     x = np.arange(-2.0, 2.0, delta)
     y = np.arange(-2.0, 2.0, delta)
     X, Y = np.meshgrid(x, y)
-    Z = np.exp(-((X - 1) ** 2) - Y ** 2) + np.exp(-((X + 1) ** 2) - Y ** 2)
+    Z = np.exp(-((X - 1) ** 2) - Y**2) + np.exp(-((X + 1) ** 2) - Y**2)
 
     # plt.contour(X, Y, Z, levels=[0.75])
     matplotx.contour(X, Y, Z, levels=[0.75])
@@ -76,7 +76,7 @@ def test_multiple_levels():
     x = np.arange(-2.0, 2.0, delta)
     y = np.arange(-2.0, 2.0, delta)
     X, Y = np.meshgrid(x, y)
-    Z = np.exp(-(X ** 2) - Y ** 2)
+    Z = np.exp(-(X**2) - Y**2)
 
     # plt.contour(X, Y, Z, levels=[0.75])
     matplotx.contour(X, Y, Z, levels=[0.5, 0.75])
