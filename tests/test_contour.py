@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import ticker
 
 import matplotx
 
@@ -87,20 +88,29 @@ def test_multiple_levels():
 
 def test_contours():
     def rosenbrock(x):
-        a = 1.0
-        b = 100.0
-        return (a - x[0]) ** 2 + b * (x[1] - x[0] ** 2) ** 2
+        return (1.0 - x[0]) ** 2 + 100.0 * (x[1] - x[0] ** 2) ** 2
 
-    im = matplotx.contours(
+    x = np.linspace(-3.0, 3.0, 200)
+    y = np.linspace(-1.0, 3.0, 200)
+    x, y = np.meshgrid(x, y)
+    vals = rosenbrock(np.array([x, y]))
+    plt.contourf(x, y, vals, locator=ticker.LogLocator())
+    plt.gca().set_aspect("equal")
+    # plt.savefig("mpl-contourf.svg", transparent=True, bbox_inches="tight")
+    plt.show()
+    plt.close()
+
+    matplotx.contours(
         rosenbrock,
         (-3.0, 3.0, 200),
         (-1.0, 3.0, 200),
         log_scaling=True,
         cmap="viridis",
-        outline_color="white",
+        outline="white",
     )
     plt.gca().set_aspect("equal")
-    plt.colorbar(im)
+    # plt.colorbar(im)
+    # plt.savefig("matplotx-contours.svg", transparent=True, bbox_inches="tight")
     plt.show()
     plt.close()
 
