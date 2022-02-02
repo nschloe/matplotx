@@ -188,7 +188,7 @@ Other styles:
 
 ### Smooth contours
 
-| <img src="https://nschloe.github.io/matplotx/contours-mpl.svg" width="100%"> | <img src="https://nschloe.github.io/matplotx/contours-matplotx.svg" width="100%"> |
+| <img src="https://nschloe.github.io/matplotx/mpl-contourf.svg" width="100%"> | <img src="https://nschloe.github.io/matplotx/matplotx-contours.svg" width="100%"> |
 | :--------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
 |                                `plt.contourf`                                |                               `matplotx.contours()`                               |
 
