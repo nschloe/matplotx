@@ -186,6 +186,37 @@ Other styles:
 - [Danny Antaki, _vaporwave aesthetics_](https://github.com/dantaki/vapeplot)
 - [QuantumBlack Labs, _QuantumBlack_](https://github.com/quantumblacklabs/qbstyles)
 
+### Smooth contours
+
+| <img src="https://nschloe.github.io/matplotx/mpl-contourf.svg" width="100%"> | <img src="https://nschloe.github.io/matplotx/matplotx-contours.svg" width="100%"> |
+| :--------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
+|                                `plt.contourf`                                |                               `matplotx.contours()`                               |
+
+Sometimes, the sharp edges of `contour[f]` plots don't accurately represent the
+smoothness of the function in question. Smooth contours, `contours()`, serves as a drop-in replacement.
+
+```python
+import matplotlib.pyplot as plt
+import matplotx
+
+
+def rosenbrock(x):
+    return (1.0 - x[0]) ** 2 + 100.0 * (x[1] - x[0] ** 2) ** 2
+
+
+im = matplotx.contours(
+    rosenbrock,
+    (-3.0, 3.0, 200),
+    (-1.0, 3.0, 200),
+    log_scaling=True,
+    cmap="viridis",
+    outline="white",
+)
+plt.gca().set_aspect("equal")
+plt.colorbar(im)
+plt.show()
+```
+
 ### Contour plots for functions with discontinuities
 
 | <img src="https://nschloe.github.io/matplotx/contour-mpl.svg" width="100%"> | <img src="https://nschloe.github.io/matplotx/contour-matplotx.svg" width="100%"> |

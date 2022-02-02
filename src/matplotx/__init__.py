@@ -1,13 +1,14 @@
 from . import styles
 from .__about__ import __version__
 from ._cli import cli
-from ._contour import contour, discontour
+from ._contour import contour, contours, discontour
 from ._labels import line_labels, show_bar_values, ylabel_top
 from ._spy import spy
 
 __all__ = [
     "cli",
     "contour",
+    "contours",
     "discontour",
     "styles",
     "line_labels",
