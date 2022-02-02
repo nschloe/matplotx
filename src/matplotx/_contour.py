@@ -1,9 +1,13 @@
 from __future__ import annotations
 
+from typing import Callable
+
 import matplotlib.colors
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import ticker
 from matplotlib.collections import LineCollection
+from matplotlib.colors import LogNorm
 from numpy.typing import ArrayLike
 
 
@@ -295,3 +299,44 @@ def _get_xy_paths(
             xy_paths.append(np.array([x_, y_]))
 
     return xy_paths
+
+
+def contours(
+    f: Callable[[np.ndarray], np.ndarray],
+    x_range: tuple[float, float, int],
+    y_range: tuple[float, float, int],
+    log_scaling: bool = False,
+    outline_color: str | None = None,
+    **kwargs,
+):
+    """Smooth contour plot."""
+    xmin, xmax, nx = x_range
+    ymin, ymax, ny = y_range
+
+    x = np.linspace(*x_range)
+    y = np.linspace(*y_range)
+    xy = np.array(np.meshgrid(x, y))
+
+    vals = f(xy)
+
+    norm = LogNorm() if log_scaling else None
+
+    im = plt.imshow(
+        vals,
+        origin="lower",
+        extent=(xmin, xmax, ymin, ymax),
+        norm=norm,
+        **kwargs,
+    )
+
+    if outline_color is not None:
+        plt.contour(
+            x,
+            y,
+            vals,
+            colors=outline_color,
+            locator=ticker.LogLocator(),
+            linewidths=0.5,
+        )
+
+    return im

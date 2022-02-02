@@ -85,5 +85,25 @@ def test_multiple_levels():
     plt.close()
 
 
+def test_contours():
+    def rosenbrock(x):
+        a = 1.0
+        b = 100.0
+        return (a - x[0]) ** 2 + b * (x[1] - x[0] ** 2) ** 2
+
+    im = matplotx.contours(
+        rosenbrock,
+        (-3.0, 3.0, 200),
+        (-1.0, 3.0, 200),
+        log_scaling=True,
+        cmap="viridis",
+        outline_color="white",
+    )
+    plt.gca().set_aspect("equal")
+    plt.colorbar(im)
+    plt.show()
+    plt.close()
+
+
 if __name__ == "__main__":
-    test_plot()
+    test_contours()
