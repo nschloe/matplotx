@@ -165,19 +165,18 @@ def ylabel_top(string: str) -> None:
 def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
     ax = plt.gca()
 
-    # turn off y-ticks and y-grid
+    # turn off ticks and grid
     if alignment == "vertical":
-        plt.tick_params(axis="y", which="both", left=False, right=False, labelleft=False)
+        plt.tick_params(
+            axis="y", which="both", left=False, right=False, labelleft=False)
     elif alignment == "horizontal":
-        plt.tick_params(axis="x", which="both", bottom=False, top=False, labelbottom=False)
+        plt.tick_params(
+            axis="x", which="both", bottom=False, top=False, labelbottom=False)
 
     plt.grid(False)
 
     # remove margins
-    if alignment == "vertical":
-        plt.margins(x=0)
-    elif alignment == "horizontal":
-        plt.margins(y=0)
+    plt.margins(x=0, y=0)
 
     data_to_axis = ax.transData + ax.transAxes.inverted()
     axis_to_data = ax.transAxes + ax.transData.inverted()
