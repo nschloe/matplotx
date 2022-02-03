@@ -335,6 +335,7 @@ def contours(
             colors=outline,
             locator=ticker.LogLocator() if log_scaling else None,
             linewidths=0.5,
+            linestyles="solid",
         )
 
     return im
