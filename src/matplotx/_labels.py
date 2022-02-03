@@ -165,6 +165,12 @@ def ylabel_top(string: str) -> None:
 def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
     ax = plt.gca()
 
+    # check alignment
+    if alignment not in ["vertical", "horizontal"]:
+        msg = "Unknown alignment {}".format(alignment)
+        msg += " (should be horizontal or vertical)"
+        raise ValueError(msg)
+
     # turn off ticks and grid
     if alignment == "vertical":
         plt.tick_params(
