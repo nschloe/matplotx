@@ -17,8 +17,7 @@ def test_bar():
 
 
 def test_bar_horizontal():
-    """Checks that a bar chart can be created with horizontal alignment
-    """
+    """Checks that a bar chart can be created with horizontal alignment"""
     with plt.style.context(matplotx.styles.dufte_bar):
         labels = ["label 1", "label 2"]
         vals = [2.1, 6.3]
@@ -31,8 +30,7 @@ def test_bar_horizontal():
 
 
 def test_wrong_alignment():
-    """Checks that an error is raised when alignment has an invalid value
-    """
+    """Checks that an error is raised when alignment has an invalid value"""
     with pytest.raises(ValueError, match="Unknown alignment"):
         matplotx.show_bar_values(alignment="coucou")
 
