@@ -175,11 +175,11 @@ def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
     if alignment == "vertical":
         plt.tick_params(
             axis="y", which="both", left=False, right=False, labelleft=False
-    )
+        )
     elif alignment == "horizontal":
         plt.tick_params(
             axis="x", which="both", bottom=False, top=False, labelbottom=False
-    )
+        )
 
     plt.grid(False)
 
