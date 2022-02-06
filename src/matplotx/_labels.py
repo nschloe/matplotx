@@ -162,30 +162,58 @@ def ylabel_top(string: str) -> None:
     yl.set_rotation(0)
 
 
-def show_bar_values(fmt: str = "{}") -> None:
+def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
     ax = plt.gca()
 
-    # turn off y-ticks and y-grid
-    plt.tick_params(axis="y", which="both", left=False, right=False, labelleft=False)
+    # check alignment
+    if alignment not in ["vertical", "horizontal"]:
+        msg = "Unknown alignment {}".format(alignment)
+        msg += " (should be horizontal or vertical)"
+        raise ValueError(msg)
+
+    # turn off ticks and grid
+    if alignment == "vertical":
+        plt.tick_params(
+            axis="y", which="both", left=False, right=False, labelleft=False
+        )
+    elif alignment == "horizontal":
+        plt.tick_params(
+            axis="x", which="both", bottom=False, top=False, labelbottom=False
+        )
+
     plt.grid(False)
 
     # remove margins
-    plt.margins(x=0)
+    plt.margins(x=0, y=0)
 
     data_to_axis = ax.transData + ax.transAxes.inverted()
     axis_to_data = ax.transAxes + ax.transData.inverted()
 
     for rect in ax.patches:
-        height = rect.get_height()
-        ypos_ax = data_to_axis.transform([1.0, height])
-        ypos = axis_to_data.transform(ypos_ax - 0.1)[1]
+        if alignment == "vertical":
+            height = rect.get_height()
+            ypos_ax = data_to_axis.transform([1.0, height])
+            ypos = axis_to_data.transform(ypos_ax - 0.1)[1]
+            xpos = rect.get_x() + rect.get_width() / 2
+            s = fmt.format(height)
+            ha = "center"
+            va = "bottom"
+        elif alignment == "horizontal":
+            width = rect.get_width()
+            xpos_ax = data_to_axis.transform([1.0, width])
+            xpos = axis_to_data.transform(xpos_ax - 0.1)[1]
+            ypos = rect.get_y() + rect.get_height() / 2
+            s = fmt.format(width)
+            ha = "right"
+            va = "center"
+
         ax.text(
-            rect.get_x() + rect.get_width() / 2,
+            xpos,
             ypos,
-            fmt.format(height),
+            s,
             size=14,
             weight="bold",
-            ha="center",
-            va="bottom",
+            ha=ha,
+            va=va,
             color="white",
         )
