@@ -190,19 +190,22 @@ def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
     axis_to_data = ax.transAxes + ax.transData.inverted()
 
     for rect in ax.patches:
-        # compute position
         if alignment == "vertical":
             height = rect.get_height()
             ypos_ax = data_to_axis.transform([1.0, height])
             ypos = axis_to_data.transform(ypos_ax - 0.1)[1]
             xpos = rect.get_x() + rect.get_width() / 2
             s = fmt.format(height)
+            ha = "center"
+            va = "bottom"
         elif alignment == "horizontal":
             width = rect.get_width()
             xpos_ax = data_to_axis.transform([1.0, width])
-            xpos = axis_to_data.transform(xpos_ax - 0.3)[1]
-            ypos = rect.get_y() + rect.get_height() / 2 - 0.1
+            xpos = axis_to_data.transform(xpos_ax - 0.1)[1]
+            ypos = rect.get_y() + rect.get_height() / 2
             s = fmt.format(width)
+            ha = "right"
+            va = "center"
 
         ax.text(
             xpos,
@@ -210,7 +213,7 @@ def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
             s,
             size=14,
             weight="bold",
-            ha="center",
-            va="bottom",
+            ha=ha,
+            va=va,
             color="white",
         )
