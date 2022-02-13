@@ -145,10 +145,13 @@ def _get_xy_paths(
     verti = np.ones((nx, ny - 1), dtype=bool)
 
     if level is not None:
-        # for each quad, check if the contour passes through it
+        # For each quad, check if the contour passes through it.
+        # Check `<` and `>=` separately to account for NaNs (for which both
+        # comparisons are false.
         is_below = Z < level
-        horiz &= ~np.logical_xor(is_below[:-1, :], ~is_below[1:, :])
-        verti &= ~np.logical_xor(is_below[:, :-1], ~is_below[:, 1:])
+        is_above = Z >= level
+        horiz &= ~np.logical_xor(is_below[:-1, :], is_above[1:, :])
+        verti &= ~np.logical_xor(is_below[:, :-1], is_above[:, 1:])
 
     if min_jump is not None:
         horiz &= np.abs(Z[:-1, :] - Z[1:, :]) > min_jump
