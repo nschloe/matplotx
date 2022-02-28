@@ -106,7 +106,7 @@ def test_contours():
         (-1.0, 3.0, 200),
         log_scaling=True,
         cmap="viridis",
-        outline="white",
+        # outline="white",
     )
     plt.gca().set_aspect("equal")
     # plt.colorbar(im)
