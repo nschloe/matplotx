@@ -1,7 +1,7 @@
 import tempfile
 from pathlib import Path
 
-import imageio
+import imageio.v2 as iio
 import numpy
 import pytest
 from scipy import sparse
@@ -32,7 +32,7 @@ def test_png(ref, kwargs):
     with tempfile.TemporaryDirectory() as temp_dir:
         filepath = Path(temp_dir) / "test.png"
         matplotx.spy(M, filename=filepath, **kwargs)
-        im = imageio.imread(filepath)
+        im = iio.imread(filepath)
         y = numpy.random.randint(0, 100, size=numpy.prod(im.shape))
         assert numpy.dot(y, im.flatten()) == ref
 
