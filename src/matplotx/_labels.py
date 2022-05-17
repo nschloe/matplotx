@@ -55,7 +55,6 @@ def line_labels(
         ax_height_inches = ax_height * fig_height_inches
         ylim = ax.get_ylim()
         if logy:
-            print(ylim)
             ax_height_ylim = math.log10(ylim[1]) - math.log10(ylim[0])
         else:
             ax_height_ylim = ylim[1] - ylim[0]
