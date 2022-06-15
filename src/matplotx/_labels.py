@@ -49,7 +49,7 @@ def line_labels(
         # into axes units.
         fig = plt.gcf()
         fig_height_inches = fig.get_size_inches()[1]
-        ax = plt.gca()
+        ax = plt.gca()            # This is redudent because line 43? Not 100% sure so kept it in. 
         ax_pos = ax.get_position()
         ax_height = ax_pos.y1 - ax_pos.y0
         ax_height_inches = ax_height * fig_height_inches
@@ -112,7 +112,7 @@ def line_labels(
     axis_to_data = ax.transAxes + ax.transData.inverted()
     xpos = axis_to_data.transform([1.03, 1.0])[0]
     for label, ypos, color in zip(labels, targets, colors):
-        plt.text(
+        ax.set_text(
             xpos, ypos, label, verticalalignment="center", color=color, **text_kwargs
         )
 
