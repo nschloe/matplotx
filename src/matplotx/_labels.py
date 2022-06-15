@@ -117,12 +117,12 @@ def line_labels(
         )
 
 
-def ylabel_top(string: str) -> None:
+def ylabel_top(string: str, ax=None) -> None:
     # Rotate the ylabel (such that you can read it comfortably) and place it above the
     # top ytick. This requires some logic, so it cannot be incorporated in `style`.
     # See <https://stackoverflow.com/a/27919217/353337> on how to get the axes
     # coordinates of the top ytick.
-    ax = plt.gca()
+    ax = ax or plt.gca()
 
     yticks_pos = ax.get_yticks()
     coords = np.column_stack([np.zeros_like(yticks_pos), yticks_pos])
@@ -155,7 +155,7 @@ def ylabel_top(string: str) -> None:
         bbox = ax.get_window_extent().transformed(plt.gcf().dpi_scale_trans.inverted())
         pos_x = -dist_in / bbox.width
 
-    yl = plt.ylabel(string, horizontalalignment="right", multialignment="right")
+    yl = ax.set_ylabel(string, horizontalalignment="right", multialignment="right")
     # place the label 10% above the top tick
     ax.yaxis.set_label_coords(pos_x, pos_y)
     yl.set_rotation(0)
