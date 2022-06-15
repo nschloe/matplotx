@@ -49,7 +49,7 @@ def line_labels(
         # into axes units.
         fig = plt.gcf()
         fig_height_inches = fig.get_size_inches()[1]
-        ax = plt.gca()
+        ax = plt.gca()            # This is redudent because line 43? Not 100% sure so kept it in. 
         ax_pos = ax.get_position()
         ax_height = ax_pos.y1 - ax_pos.y0
         ax_height_inches = ax_height * fig_height_inches
@@ -112,17 +112,17 @@ def line_labels(
     axis_to_data = ax.transAxes + ax.transData.inverted()
     xpos = axis_to_data.transform([1.03, 1.0])[0]
     for label, ypos, color in zip(labels, targets, colors):
-        plt.text(
+        ax.set_text(
             xpos, ypos, label, verticalalignment="center", color=color, **text_kwargs
         )
 
 
-def ylabel_top(string: str) -> None:
+def ylabel_top(string: str, ax=None) -> None:
     # Rotate the ylabel (such that you can read it comfortably) and place it above the
     # top ytick. This requires some logic, so it cannot be incorporated in `style`.
     # See <https://stackoverflow.com/a/27919217/353337> on how to get the axes
     # coordinates of the top ytick.
-    ax = plt.gca()
+    ax = ax or plt.gca()
 
     yticks_pos = ax.get_yticks()
     coords = np.column_stack([np.zeros_like(yticks_pos), yticks_pos])
@@ -155,7 +155,7 @@ def ylabel_top(string: str) -> None:
         bbox = ax.get_window_extent().transformed(plt.gcf().dpi_scale_trans.inverted())
         pos_x = -dist_in / bbox.width
 
-    yl = plt.ylabel(string, horizontalalignment="right", multialignment="right")
+    yl = ax.set_ylabel(string, horizontalalignment="right", multialignment="right")
     # place the label 10% above the top tick
     ax.yaxis.set_label_coords(pos_x, pos_y)
     yl.set_rotation(0)
