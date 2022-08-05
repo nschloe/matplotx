@@ -89,7 +89,7 @@ The three matplotx ingredients are:
 
 You can also "duftify" any other style (see below) with
 
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 
 ```python
 matplotx.styles.duftify(matplotx.styles.dracula)
@@ -155,7 +155,7 @@ matplotx contains numerous extra color schemes, e.g.,
 [Solarized](https://ethanschoonover.com/solarized/),
 [the revised Tableau colors](https://www.tableau.com/about/blog/2016/7/colors-upgrade-tableau-10-56782).
 
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 
 ```python
 import matplotlib.pyplot as plt
