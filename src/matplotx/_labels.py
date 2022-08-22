@@ -38,9 +38,13 @@ def _move_min_distance(targets: ArrayLike, min_distance: float) -> np.ndarray:
 
 
 def line_labels(
-    ax=None, min_label_distance: float | str = "auto", alpha: float = 1.0, **text_kwargs
+    ax: plt.Axes | None = None,
+    min_label_distance: float | str = "auto",
+    alpha: float = 1.0,
+    **text_kwargs,
 ):
-    ax = ax or plt.gca()
+    if ax is None:
+        ax = plt.gca()
 
     logy = ax.get_yscale() == "log"
 
@@ -49,7 +53,6 @@ def line_labels(
         # into axes units.
         fig = plt.gcf()
         fig_height_inches = fig.get_size_inches()[1]
-        ax = plt.gca()
         ax_pos = ax.get_position()
         ax_height = ax_pos.y1 - ax_pos.y0
         ax_height_inches = ax_height * fig_height_inches
@@ -117,12 +120,14 @@ def line_labels(
         )
 
 
-def ylabel_top(string: str) -> None:
-    # Rotate the ylabel (such that you can read it comfortably) and place it above the
-    # top ytick. This requires some logic, so it cannot be incorporated in `style`.
-    # See <https://stackoverflow.com/a/27919217/353337> on how to get the axes
+def ylabel_top(string: str, ax: plt.Axes | None = None) -> None:
+    # Rotate the ylabel (such that you can read it comfortably) and place it
+    # above the top ytick. This requires some logic, so it cannot be
+    # incorporated in `style`. See
+    # <https://stackoverflow.com/a/27919217/353337> on how to get the axes
     # coordinates of the top ytick.
-    ax = plt.gca()
+    if ax is None:
+        ax = plt.gca()
 
     yticks_pos = ax.get_yticks()
     coords = np.column_stack([np.zeros_like(yticks_pos), yticks_pos])
@@ -161,8 +166,11 @@ def ylabel_top(string: str) -> None:
     yl.set_rotation(0)
 
 
-def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
-    ax = plt.gca()
+def show_bar_values(
+    fmt: str = "{}", alignment: str = "vertical", ax: plt.Axes | None = None
+) -> None:
+    if ax is None:
+        ax = plt.gca()
 
     # check alignment
     if alignment not in ["vertical", "horizontal"]:

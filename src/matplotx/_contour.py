@@ -58,6 +58,7 @@ def contour(
     colors: str | list[str | None] | None = None,
     alpha: float | None = None,
     linestyles: str | tuple[str] = "solid",
+    ax: plt.Axes | None = None,
 ):
     x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
 
@@ -86,10 +87,14 @@ def contour(
         cols += [color] * len(xy_paths)
 
     lc = LineCollection(lines, colors=cols, alpha=alpha, linestyle=linestyles)
-    plt.gca().add_collection(lc)
 
-    plt.xlim(x[0], x[-1])
-    plt.ylim(y[0], y[-1])
+    if ax is None:
+        ax = plt.gca()
+
+    ax.add_collection(lc)
+
+    ax.set_xlim(x[0], x[-1])
+    ax.set_ylim(y[0], y[-1])
 
     return plt
 
@@ -103,6 +108,7 @@ def discontour(
     color: str | None = None,
     linestyle: str | None = None,
     alpha: float | None = None,
+    ax: plt.Axes | None = None,
 ):
     """Plot only the discontinuities (threshold minjump)."""
     x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
@@ -117,10 +123,14 @@ def discontour(
     linestyles = [linestyle] * len(xy_paths)
 
     lc = LineCollection(lines, colors=cols, alpha=alpha, linestyles=linestyles)
-    plt.gca().add_collection(lc)
 
-    plt.xlim(x[0], x[-1])
-    plt.ylim(y[0], y[-1])
+    if ax is None:
+        ax = plt.gca()
+
+    ax.add_collection(lc)
+
+    ax.set_xlim(x[0], x[-1])
+    ax.set_ylim(y[0], y[-1])
 
     return plt
 
