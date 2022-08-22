@@ -58,6 +58,7 @@ def contour(
     colors: str | list[str | None] | None = None,
     alpha: float | None = None,
     linestyles: str | tuple[str] = "solid",
+    linewidths: float | ArrayLike | None = None,
     ax: plt.Axes | None = None,
 ):
     x, y, Z = _get_xy_from_meshgrid(X, Y, Z)
@@ -86,7 +87,13 @@ def contour(
         lines += [p.T for p in xy_paths]
         cols += [color] * len(xy_paths)
 
-    lc = LineCollection(lines, colors=cols, alpha=alpha, linestyle=linestyles)
+    lc = LineCollection(
+        lines,
+        colors=cols,
+        alpha=alpha,
+        linestyle=linestyles,
+        linewidths=linewidths,
+    )
 
     if ax is None:
         ax = plt.gca()

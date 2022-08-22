@@ -3,7 +3,7 @@ version := `python3 -c "from src.matplotx.__about__ import __version__; print(__
 default:
 	@echo "\"just publish\"?"
 
-publish:
+publish: clean
 	@if [ "$(git rev-parse --abbrev-ref HEAD)" != "main" ]; then exit 1; fi
 	gh release create "v{{version}}"
 	python3 -m build --sdist --wheel .
