@@ -38,18 +38,20 @@ def _move_min_distance(targets: ArrayLike, min_distance: float) -> np.ndarray:
 
 
 def line_labels(
-    ax=None, min_label_distance: float | str = "auto", alpha: float = 1.0, **text_kwargs
+    ax: plt.Axes | None = None,
+    min_label_distance: float | str = "auto",
+    alpha: float = 1.0,
+    **text_kwargs,
 ):
-    ax = ax or plt.gca()
+    if ax is None:
+        ax = plt.gca()
 
     logy = ax.get_yscale() == "log"
 
     if min_label_distance == "auto":
         # Make sure that the distance is alpha * fontsize. This needs to be translated
         # into axes units.
-        fig = plt.gcf()
-        fig_height_inches = fig.get_size_inches()[1]
-        ax = plt.gca()
+        fig_height_inches = plt.gcf().get_size_inches()[1]
         ax_pos = ax.get_position()
         ax_height = ax_pos.y1 - ax_pos.y0
         ax_height_inches = ax_height * fig_height_inches
@@ -112,17 +114,19 @@ def line_labels(
     axis_to_data = ax.transAxes + ax.transData.inverted()
     xpos = axis_to_data.transform([1.03, 1.0])[0]
     for label, ypos, color in zip(labels, targets, colors):
-        plt.text(
+        ax.text(
             xpos, ypos, label, verticalalignment="center", color=color, **text_kwargs
         )
 
 
-def ylabel_top(string: str) -> None:
-    # Rotate the ylabel (such that you can read it comfortably) and place it above the
-    # top ytick. This requires some logic, so it cannot be incorporated in `style`.
-    # See <https://stackoverflow.com/a/27919217/353337> on how to get the axes
+def ylabel_top(string: str, ax: plt.Axes | None = None) -> None:
+    # Rotate the ylabel (such that you can read it comfortably) and place it
+    # above the top ytick. This requires some logic, so it cannot be
+    # incorporated in `style`. See
+    # <https://stackoverflow.com/a/27919217/353337> on how to get the axes
     # coordinates of the top ytick.
-    ax = plt.gca()
+    if ax is None:
+        ax = plt.gca()
 
     yticks_pos = ax.get_yticks()
     coords = np.column_stack([np.zeros_like(yticks_pos), yticks_pos])
@@ -155,14 +159,17 @@ def ylabel_top(string: str) -> None:
         bbox = ax.get_window_extent().transformed(plt.gcf().dpi_scale_trans.inverted())
         pos_x = -dist_in / bbox.width
 
-    yl = plt.ylabel(string, horizontalalignment="right", multialignment="right")
+    yl = ax.set_ylabel(string, horizontalalignment="right", multialignment="right")
     # place the label 10% above the top tick
     ax.yaxis.set_label_coords(pos_x, pos_y)
     yl.set_rotation(0)
 
 
-def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
-    ax = plt.gca()
+def show_bar_values(
+    fmt: str = "{}", alignment: str = "vertical", ax: plt.Axes | None = None
+) -> None:
+    if ax is None:
+        ax = plt.gca()
 
     # check alignment
     if alignment not in ["vertical", "horizontal"]:
@@ -172,18 +179,16 @@ def show_bar_values(fmt: str = "{}", alignment: str = "vertical") -> None:
 
     # turn off ticks and grid
     if alignment == "vertical":
-        plt.tick_params(
-            axis="y", which="both", left=False, right=False, labelleft=False
-        )
+        ax.tick_params(axis="y", which="both", left=False, right=False, labelleft=False)
     elif alignment == "horizontal":
-        plt.tick_params(
+        ax.tick_params(
             axis="x", which="both", bottom=False, top=False, labelbottom=False
         )
 
-    plt.grid(False)
+    ax.grid(False)
 
     # remove margins
-    plt.margins(x=0, y=0)
+    ax.margins(x=0, y=0)
 
     data_to_axis = ax.transData + ax.transAxes.inverted()
     axis_to_data = ax.transAxes + ax.transData.inverted()
