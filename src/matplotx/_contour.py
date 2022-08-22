@@ -320,6 +320,7 @@ def contours(
     y_range: tuple[float, float, int],
     log_scaling: bool = False,
     outline: str | None = None,
+    ax: plt.Axes | None = None,
     **kwargs,
 ):
     """Smooth contour plot."""
@@ -332,7 +333,10 @@ def contours(
 
     vals = f(xy)
 
-    im = plt.imshow(
+    if ax is None:
+        ax = plt.gca()
+
+    im = ax.imshow(
         vals,
         origin="lower",
         extent=(xmin, xmax, ymin, ymax),
@@ -341,7 +345,7 @@ def contours(
     )
 
     if outline is not None:
-        plt.contour(
+        ax.contour(
             x,
             y,
             vals,
