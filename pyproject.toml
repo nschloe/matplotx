@@ -31,6 +31,9 @@ dependencies = [
   "numpy >= 1.20.0",
 ]
 
+[tool.setuptools.dynamic]
+version = {attr = "matplotx.__about__.__version__"}
+
 [project.optional-dependencies]
 all = [
     "networkx",
