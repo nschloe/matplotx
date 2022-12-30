@@ -10,9 +10,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/matplotx.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/nschloe/matplotx)
 [![Downloads](https://pepy.tech/badge/matplotx/month)](https://pepy.tech/project/matplotx)
 
-[![gh-actions](https://img.shields.io/github/workflow/status/nschloe/matplotx/ci?style=flat-square)](https://github.com/nschloe/matplotx/actions?query=workflow%3Aci)
+[![gh-actions](https://img.shields.io/github/actions/workflow/status/nschloe/matplotx/tests.yml?branch=main)](https://github.com/nschloe/matplotx/actions?query=workflow%3Aci)
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/matplotx.svg?style=flat-square)](https://codecov.io/gh/nschloe/matplotx)
-[![LGTM](https://img.shields.io/lgtm/grade/python/github/nschloe/matplotx.svg?style=flat-square)](https://lgtm.com/projects/g/nschloe/matplotx)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
 This package includes some useful or beautiful extensions to
