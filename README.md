@@ -175,7 +175,7 @@ with plt.style.context(matplotx.styles.dracula):
 | <img src="https://nschloe.github.io/matplotx/pitaya-smoothie-dark.svg" width="100%"> |
 
 <details>
-<summary>Many more styles</summary>
+<summary>Many more styles here...</summary>
 
 |       <img src="https://nschloe.github.io/matplotx/aura-dark.svg" width="100%">       |
 | :-----------------------------------------------------------------------------------: |
