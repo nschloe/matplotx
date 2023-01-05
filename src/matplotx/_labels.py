@@ -41,6 +41,7 @@ def line_labels(
     ax: plt.Axes | None = None,
     min_label_distance: float | str = "auto",
     alpha: float = 1.0,
+    use_line_colors: bool = True,
     **text_kwargs,
 ):
     if ax is None:
@@ -61,7 +62,8 @@ def line_labels(
         else:
             ax_height_ylim = ylim[1] - ylim[0]
         # 1 pt = 1/72 in
-        fontsize = mpl.rcParams["font.size"]
+        # use plt rcParams for use with per plot params (e.g., plt.rc_context)
+        fontsize = plt.rcParams["font.size"]
         assert fontsize is not None
         min_label_distance_inches = fontsize / 72 * alpha
         min_label_distance = (
@@ -104,7 +106,11 @@ def line_labels(
         targets = [10**t for t in targets]
 
     labels = [line.get_label() for line in lines]
-    colors = [line.get_color() for line in lines]
+    # default to black labels if not using line colors as font color
+    if use_line_colors:
+        colors = [line.get_color() for line in lines]
+    else:
+        colors = ["black" for line in lines]
 
     # Leave the labels some space to breathe. If they are too close to the
     # lines, they can get visually merged.
